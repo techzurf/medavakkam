@@ -1,0 +1,50 @@
+import React from 'react';
+import { useApp } from '../../context/AppContext';
+import { ApproachingPrayerBanner } from '../common/ApproachingPrayerBanner';
+
+interface MobileShellProps {
+  children: React.ReactNode;
+}
+
+export const MobileShell: React.FC<MobileShellProps> = ({ children }) => {
+  const { 
+    settings, 
+    setOverlayScreen,
+    setActiveTab,
+    activePrayerAlert,
+    dismissPrayerAlert,
+    mutePrayerSound,
+    isPlayingNotificationSound
+  } = useApp();
+
+  return (
+    <div className="min-h-screen w-full bg-[#EEF2EF] text-[#17221D] flex justify-center">
+      {/* Clean Standalone Mobile App Canvas */}
+      <div 
+        className={`w-full max-w-[430px] min-h-screen bg-[#F7F9F7] text-[#17221D] flex flex-col relative shadow-sm sm:border-x sm:border-slate-200/80 ${
+          settings.seniorMode ? 'text-[17px]' : 'text-[15px]'
+        }`}
+      >
+        {/* In-App Approaching Prayer Alert Toast / Banner (Triggered prior to Salah) */}
+        {activePrayerAlert && (
+          <ApproachingPrayerBanner
+            alert={activePrayerAlert}
+            isPlayingAudio={isPlayingNotificationSound}
+            onMuteAudio={mutePrayerSound}
+            onDismiss={dismissPrayerAlert}
+            onOpenTimetable={() => {
+              dismissPrayerAlert();
+              setOverlayScreen(null);
+              setActiveTab('prayers');
+            }}
+          />
+        )}
+
+        {/* Scrollable Mobile Viewport Area */}
+        <div className="flex-1 w-full overflow-y-auto overflow-x-hidden no-scrollbar flex flex-col relative pb-20">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+};
