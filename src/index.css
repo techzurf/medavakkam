@@ -4,18 +4,34 @@
   :root {
     --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-arabic: 'Amiri', serif;
-    --color-primary: #087F5B;
-    --color-secondary: #07543F;
-    --color-accent: #D4A72C;
-    --color-bg: #F7F9F7;
+
+    /* PRIMARY BRAND COLORS */
+    --color-primary: #087F5B;     /* Emerald Green */
+    --color-primary-dark: #07543F;/* Deep Green */
+    --color-soft-mint: #E8F7F1;   /* Soft Mint */
+
+    /* SECONDARY ACCENT COLORS */
+    --color-accent-gold: #D4A72C;  /* Warm Gold */
+    --color-accent-blue: #3B6FD8;  /* Royal Blue */
+    --color-accent-sky: #4DA3E8;   /* Sky Blue */
+    --color-accent-purple: #7657C8;/* Purple */
+    --color-accent-coral: #E87961; /* Coral */
+    --color-accent-orange: #E89B3C;/* Orange */
+    --color-accent-teal: #159A9C;  /* Teal */
+
+    /* NEUTRAL & BACKGROUND SURFACES */
+    --color-bg-base: #F8FAF9;
+    --color-bg-cream: #FDFBF7;
+    --color-card-surface: #FFFFFF;
     --color-text-main: #17221D;
-    --color-text-muted: #6B756F;
+    --color-text-charcoal: #1E293B;
+    --color-text-muted: #64748B;
   }
 
   body {
     font-family: var(--font-sans);
     background-color: #0E1612;
-    color: #17221D;
+    color: var(--color-text-main);
     -webkit-tap-highlight-color: transparent;
     user-select: none;
   }

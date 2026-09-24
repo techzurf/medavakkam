@@ -32,8 +32,8 @@ export const ProfileScreen: React.FC = () => {
   const userProfile = {
     name: 'Brother Rayyan Mansoor',
     email: 'rayyan.m@example.com',
-    memberId: 'ALN-8842',
-    phone: '+1 (555) 392-8172'
+    memberId: 'MMM-8842',
+    phone: '+91 98401 24100'
   };
 
   const savedDuas = duas.filter(d => d.isFavorite);
@@ -65,16 +65,16 @@ export const ProfileScreen: React.FC = () => {
 
         {/* User stats */}
         <div className="grid grid-cols-3 gap-2 pt-3 border-t border-slate-100 text-center">
-          <div className="p-2 bg-slate-50 rounded-xl">
-            <span className="text-sm font-extrabold text-slate-900 block">{userRegistrations.length}</span>
+          <div className="p-2 bg-blue-50/70 border border-blue-100/60 rounded-xl">
+            <span className="text-sm font-extrabold text-[#3B6FD8] block">{userRegistrations.length}</span>
             <span className="text-[10px] text-slate-500">Registrations</span>
           </div>
-          <div className="p-2 bg-slate-50 rounded-xl">
-            <span className="text-sm font-extrabold text-slate-900 block">{savedDuas.length}</span>
+          <div className="p-2 bg-rose-50/70 border border-rose-100/60 rounded-xl">
+            <span className="text-sm font-extrabold text-[#E87961] block">{savedDuas.length}</span>
             <span className="text-[10px] text-slate-500">Saved Duas</span>
           </div>
-          <div className="p-2 bg-slate-50 rounded-xl">
-            <span className="text-sm font-extrabold text-emerald-800 block">Active</span>
+          <div className="p-2 bg-emerald-50/70 border border-emerald-100/60 rounded-xl">
+            <span className="text-sm font-extrabold text-[#087F5B] block">Active</span>
             <span className="text-[10px] text-slate-500">Status</span>
           </div>
         </div>
@@ -100,10 +100,10 @@ export const ProfileScreen: React.FC = () => {
                 <span className="font-bold text-slate-900 block">{reg.title}</span>
                 <span className="text-[11px] text-slate-500">Submitted on {reg.date}</span>
               </div>
-              <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold ${
+              <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold border ${
                 reg.status === 'Confirmed' 
-                  ? 'bg-emerald-100 text-[#087F5B]' 
-                  : 'bg-amber-100 text-amber-900'
+                  ? 'bg-emerald-50 text-[#087F5B] border-emerald-200' 
+                  : 'bg-amber-50 text-[#B45309] border-amber-200'
               }`}>
                 {reg.status}
               </span>
@@ -119,10 +119,10 @@ export const ProfileScreen: React.FC = () => {
           className="w-full p-3 flex items-center justify-between hover:bg-slate-50 rounded-2xl transition-colors text-xs font-semibold text-slate-800"
         >
           <div className="flex items-center gap-2.5">
-            <Heart className="w-4 h-4 text-rose-600" />
+            <Heart className="w-4 h-4 text-[#E87961]" />
             <span>Bookmarked Duas & Dhikr</span>
           </div>
-          <span className="text-xs font-bold text-[#087F5B]">{savedDuas.length}</span>
+          <span className="text-xs font-bold text-[#E87961]">{savedDuas.length}</span>
         </button>
 
         <button
@@ -130,7 +130,7 @@ export const ProfileScreen: React.FC = () => {
           className="w-full p-3 flex items-center justify-between hover:bg-slate-50 rounded-2xl transition-colors text-xs font-semibold text-slate-800"
         >
           <div className="flex items-center gap-2.5">
-            <PackageSearch className="w-4 h-4 text-amber-700" />
+            <PackageSearch className="w-4 h-4 text-[#E89B3C]" />
             <span>Masjid Lost & Found</span>
           </div>
           <ChevronRight className="w-4 h-4 text-slate-400" />
@@ -141,7 +141,7 @@ export const ProfileScreen: React.FC = () => {
           className="w-full p-3 flex items-center justify-between hover:bg-slate-50 rounded-2xl transition-colors text-xs font-semibold text-slate-800"
         >
           <div className="flex items-center gap-2.5">
-            <SettingsIcon className="w-4 h-4 text-[#087F5B]" />
+            <SettingsIcon className="w-4 h-4 text-[#159A9C]" />
             <span>App Settings & Accessibility</span>
           </div>
           <ChevronRight className="w-4 h-4 text-slate-400" />

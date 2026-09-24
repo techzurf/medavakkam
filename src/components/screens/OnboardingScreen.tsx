@@ -53,7 +53,7 @@ export const OnboardingScreen: React.FC = () => {
       subtitle: 'Your Trusted Ummah Network',
       desc: 'Access verified halal jobs, discover local Muslim-owned businesses, Sunnah-aligned matrimony, and support one another through our united Masjid ecosystem.',
       icon: (
-        <div className="w-24 h-24 rounded-3xl bg-teal-50 border border-teal-100 flex items-center justify-center text-[#07543F] relative shadow-inner">
+        <div className="w-24 h-24 rounded-3xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#3B6FD8] relative shadow-inner">
           <Users className="w-12 h-12 stroke-[1.7]" />
           <div className="absolute -top-1.5 -right-1.5 w-7 h-7 rounded-full bg-[#D4A72C] flex items-center justify-center text-slate-950 font-bold text-xs shadow-xs">
             🤝
@@ -133,7 +133,7 @@ export const OnboardingScreen: React.FC = () => {
           onClick={handleNext}
           className="w-full h-13 rounded-2xl bg-gradient-to-r from-[#087F5B] to-[#07543F] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/15 active:scale-[0.98] transition-all"
         >
-          <span>{currentSlide === slides.length - 1 ? 'Enter Al-Noor Masjid' : 'Continue'}</span>
+          <span>{currentSlide === slides.length - 1 ? 'Enter Madina Masjid' : 'Continue'}</span>
           <ArrowRight className="w-4 h-4" />
         </button>
       </div>

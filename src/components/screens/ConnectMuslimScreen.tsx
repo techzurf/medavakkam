@@ -38,31 +38,34 @@ export const ConnectMuslimScreen: React.FC = () => {
 
   return (
     <div className="w-full flex flex-col gap-4 px-4 pt-3 pb-8">
-      {/* Ecosystem Header Card */}
-      <div className="w-full bg-gradient-to-br from-[#07543F] to-[#043326] rounded-3xl p-5 text-white relative overflow-hidden shadow-sm">
-        <div className="absolute top-0 right-0 w-32 h-32 bg-[#D4A72C]/10 rounded-full blur-xl pointer-events-none"></div>
+      {/* Ecosystem Header Card: Distinctive Premium Multi-Color Gradient */}
+      <div className="w-full bg-gradient-to-br from-[#0F2942] via-[#16353C] to-[#07543F] rounded-3xl p-5 text-white relative overflow-hidden shadow-sm border border-slate-700/40">
+        <div className="absolute top-0 right-0 w-36 h-36 bg-[#3B6FD8]/20 rounded-full blur-2xl pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#7657C8]/20 rounded-full blur-2xl pointer-events-none"></div>
 
-        <div className="flex items-center gap-2 mb-1.5">
-          <Sparkles className="w-4 h-4 text-[#D4A72C]" />
-          <span className="text-[11px] font-bold text-amber-300 uppercase tracking-widest">
-            Ummah Ecosystem
-          </span>
-        </div>
+        <div className="relative z-10">
+          <div className="flex items-center gap-2 mb-1.5">
+            <Sparkles className="w-4 h-4 text-[#D4A72C]" />
+            <span className="text-[11px] font-bold text-[#D4A72C] uppercase tracking-widest">
+              Ummah Ecosystem
+            </span>
+          </div>
 
-        <h1 className="text-xl font-extrabold tracking-tight text-white mb-1">
-          Connect Muslim Services
-        </h1>
+          <h1 className="text-xl font-extrabold tracking-tight text-white mb-1">
+            Connect Muslim Services
+          </h1>
 
-        <p className="text-xs text-emerald-100/90 leading-relaxed max-w-sm">
-          A trusted halal network bridging local jobs, businesses, matrimony, education, and healthcare through Al-Noor Masjid.
-        </p>
+          <p className="text-xs text-slate-300 leading-relaxed max-w-sm">
+            A trusted halal network bridging local jobs, businesses, matrimony, education, and healthcare through Madina Masjid Medavakkam.
+          </p>
 
-        <div className="mt-3 pt-3 border-t border-white/10 flex items-center gap-3 text-[11px] text-emerald-200">
-          <span>✓ Community Verified</span>
-          <span>·</span>
-          <span>✓ 100% Interest-Free</span>
-          <span>·</span>
-          <span>✓ Sunnah Aligned</span>
+          <div className="mt-3 pt-3 border-t border-white/10 flex items-center gap-3 text-[11px] text-slate-300">
+            <span className="text-sky-300">✓ Community Verified</span>
+            <span>·</span>
+            <span className="text-amber-300">✓ 100% Interest-Free</span>
+            <span>·</span>
+            <span className="text-emerald-300">✓ Sunnah Aligned</span>
+          </div>
         </div>
       </div>
 
@@ -95,7 +98,14 @@ export const ConnectMuslimScreen: React.FC = () => {
                 </div>
               </div>
 
-              <span className="text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
+              <span 
+                className="text-[10px] font-bold px-2 py-0.5 rounded-full"
+                style={{
+                  color: item.accentColor,
+                  backgroundColor: `${item.accentColor}18`,
+                  border: `1px solid ${item.accentColor}30`
+                }}
+              >
                 {item.tag}
               </span>
             </div>
@@ -118,7 +128,10 @@ export const ConnectMuslimScreen: React.FC = () => {
               <span className="font-semibold text-slate-700">
                 {item.stats}
               </span>
-              <span className="font-bold text-[#087F5B] flex items-center gap-0.5">
+              <span 
+                className="font-bold flex items-center gap-0.5"
+                style={{ color: item.accentColor }}
+              >
                 <span>Access Portal</span>
                 <ChevronRight className="w-3.5 h-3.5" />
               </span>
@@ -159,8 +172,15 @@ export const ConnectMuslimScreen: React.FC = () => {
               </button>
             </div>
 
-            <div className="p-3 bg-emerald-50 rounded-2xl border border-emerald-100 mb-4 text-xs text-emerald-900">
-              <strong>Verified Community Network:</strong> Facilitated through the Al-Noor community desk.
+            <div 
+              className="p-3 rounded-2xl mb-4 text-xs font-medium"
+              style={{
+                backgroundColor: `${selectedItem.accentColor}12`,
+                border: `1px solid ${selectedItem.accentColor}25`,
+                color: selectedItem.accentColor
+              }}
+            >
+              <strong>Verified Community Network:</strong> Facilitated through the Madina Masjid community desk.
             </div>
 
             <div className="mb-4">
@@ -170,7 +190,10 @@ export const ConnectMuslimScreen: React.FC = () => {
               <div className="space-y-2">
                 {selectedItem.features.map((feat, idx) => (
                   <div key={idx} className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 text-xs text-slate-700">
-                    <Check className="w-4 h-4 text-[#087F5B] shrink-0" />
+                    <Check 
+                      className="w-4 h-4 shrink-0" 
+                      style={{ color: selectedItem.accentColor }}
+                    />
                     <span>{feat}</span>
                   </div>
                 ))}
@@ -188,7 +211,8 @@ export const ConnectMuslimScreen: React.FC = () => {
             ) : (
               <button
                 onClick={() => setInterestSubmitted(true)}
-                className="w-full py-3.5 rounded-2xl bg-[#087F5B] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/10 active:scale-[0.98] transition-all"
+                className="w-full py-3.5 rounded-2xl text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-slate-900/10 active:scale-[0.98] transition-all"
+                style={{ backgroundColor: selectedItem.accentColor }}
               >
                 <span>Connect with {selectedItem.title}</span>
                 <ChevronRight className="w-4 h-4" />

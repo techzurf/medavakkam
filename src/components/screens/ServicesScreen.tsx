@@ -35,18 +35,88 @@ export const ServicesScreen: React.FC = () => {
   const [activeModalService, setActiveModalService] = useState<ServiceItem | null>(null);
   const [hasApplied, setHasApplied] = useState(false);
 
+  // Service theme mapping
+  const serviceThemes: Record<string, { iconBg: string; iconColor: string; badgeBg: string; badgeText: string; accentColor: string; tintBorder: string }> = {
+    'srv-1': { // Zakat Assistance Fund -> Teal
+      iconBg: 'bg-[#F0FDFA]',
+      iconColor: 'text-[#159A9C]',
+      badgeBg: 'bg-[#F0FDFA]',
+      badgeText: 'text-[#159A9C]',
+      accentColor: '#159A9C',
+      tintBorder: 'hover:border-[#159A9C]/40'
+    },
+    'srv-2': { // Funeral & Janazah -> Royal Blue
+      iconBg: 'bg-[#EFF6FF]',
+      iconColor: 'text-[#3B6FD8]',
+      badgeBg: 'bg-[#EFF6FF]',
+      badgeText: 'text-[#3B6FD8]',
+      accentColor: '#3B6FD8',
+      tintBorder: 'hover:border-[#3B6FD8]/40'
+    },
+    'srv-3': { // Islamic Marriage / Nikah -> Warm Gold
+      iconBg: 'bg-[#FEFCE8]',
+      iconColor: 'text-[#D4A72C]',
+      badgeBg: 'bg-[#FEFCE8]',
+      badgeText: 'text-[#B45309]',
+      accentColor: '#D4A72C',
+      tintBorder: 'hover:border-[#D4A72C]/40'
+    },
+    'srv-4': { // Pastoral Counseling -> Purple
+      iconBg: 'bg-[#F5F3FF]',
+      iconColor: 'text-[#7657C8]',
+      badgeBg: 'bg-[#F5F3FF]',
+      badgeText: 'text-[#7657C8]',
+      accentColor: '#7657C8',
+      tintBorder: 'hover:border-[#7657C8]/40'
+    },
+    'srv-5': { // Quran & Tajweed -> Emerald Green
+      iconBg: 'bg-[#E8F7F1]',
+      iconColor: 'text-[#087F5B]',
+      badgeBg: 'bg-[#E8F7F1]',
+      badgeText: 'text-[#087F5B]',
+      accentColor: '#087F5B',
+      tintBorder: 'hover:border-[#087F5B]/40'
+    },
+    'srv-6': { // Volunteer Services -> Orange
+      iconBg: 'bg-[#FFF7ED]',
+      iconColor: 'text-[#E89B3C]',
+      badgeBg: 'bg-[#FFF7ED]',
+      badgeText: 'text-[#C2410C]',
+      accentColor: '#E89B3C',
+      tintBorder: 'hover:border-[#E89B3C]/40'
+    },
+    'srv-7': { // Community Food Pantry -> Coral
+      iconBg: 'bg-[#FFF1F2]',
+      iconColor: 'text-[#E87961]',
+      badgeBg: 'bg-[#FFF1F2]',
+      badgeText: 'text-[#E87961]',
+      accentColor: '#E87961',
+      tintBorder: 'hover:border-[#E87961]/40'
+    },
+    'srv-8': { // Job & Career Assistance -> Sky Blue
+      iconBg: 'bg-[#F0F9FF]',
+      iconColor: 'text-[#4DA3E8]',
+      badgeBg: 'bg-[#F0F9FF]',
+      badgeText: 'text-[#0284C7]',
+      accentColor: '#4DA3E8',
+      tintBorder: 'hover:border-[#4DA3E8]/40'
+    }
+  };
+
+  const getServiceTheme = (id: string) => serviceThemes[id] || serviceThemes['srv-5'];
+
   // Helper icon getter
-  const getIcon = (name: string) => {
+  const getIcon = (name: string, colorClass = 'text-[#087F5B]') => {
     switch (name) {
-      case 'Coins': return <Coins className="w-5 h-5 text-amber-700" />;
-      case 'HeartHandshake': return <HeartHandshake className="w-5 h-5 text-rose-700" />;
-      case 'Sparkles': return <Sparkles className="w-5 h-5 text-yellow-700" />;
-      case 'UserCheck': return <UserCheck className="w-5 h-5 text-emerald-800" />;
-      case 'BookOpen': return <BookOpen className="w-5 h-5 text-teal-800" />;
-      case 'Users': return <Users className="w-5 h-5 text-indigo-700" />;
-      case 'Package': return <Package className="w-5 h-5 text-emerald-700" />;
-      case 'Briefcase': return <Briefcase className="w-5 h-5 text-amber-800" />;
-      default: return <Sparkles className="w-5 h-5 text-[#087F5B]" />;
+      case 'Coins': return <Coins className={`w-5 h-5 ${colorClass}`} />;
+      case 'HeartHandshake': return <HeartHandshake className={`w-5 h-5 ${colorClass}`} />;
+      case 'Sparkles': return <Sparkles className={`w-5 h-5 ${colorClass}`} />;
+      case 'UserCheck': return <UserCheck className={`w-5 h-5 ${colorClass}`} />;
+      case 'BookOpen': return <BookOpen className={`w-5 h-5 ${colorClass}`} />;
+      case 'Users': return <Users className={`w-5 h-5 ${colorClass}`} />;
+      case 'Package': return <Package className={`w-5 h-5 ${colorClass}`} />;
+      case 'Briefcase': return <Briefcase className={`w-5 h-5 ${colorClass}`} />;
+      default: return <Sparkles className={`w-5 h-5 ${colorClass}`} />;
     }
   };
 
@@ -66,64 +136,70 @@ export const ServicesScreen: React.FC = () => {
           Masjid Community Services
         </h1>
         <p className="text-xs text-slate-500 mt-0.5">
-          Dedicated religious, social, and humanitarian aid provided by Al-Noor Islamic Center.
+          Dedicated religious, social, and humanitarian aid provided by Madina Masjid Medavakkam.
         </p>
       </div>
 
-      {/* Services Grid (Clean 2-column or list rows) */}
+      {/* Services Grid (Clean 2-column or list rows with visually diverse cards) */}
       <div className="grid grid-cols-1 gap-2.5">
-        {MOCK_SERVICES.map(srv => (
-          <div
-            key={srv.id}
-            onClick={() => handleOpen(srv)}
-            className="w-full bg-white rounded-2xl p-4 border border-slate-200/80 shadow-2xs hover:shadow-xs cursor-pointer flex items-start gap-3.5 transition-all active:scale-[0.99]"
-          >
-            <div className="w-11 h-11 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0">
-              {getIcon(srv.iconName)}
-            </div>
+        {MOCK_SERVICES.map(srv => {
+          const theme = getServiceTheme(srv.id);
+          return (
+            <div
+              key={srv.id}
+              onClick={() => handleOpen(srv)}
+              className={`w-full bg-white rounded-2xl p-4 border border-slate-200/80 shadow-2xs ${theme.tintBorder} cursor-pointer flex items-start gap-3.5 transition-all active:scale-[0.99]`}
+            >
+              <div className={`w-11 h-11 rounded-2xl ${theme.iconBg} border border-slate-100 flex items-center justify-center shrink-0`}>
+                {getIcon(srv.iconName, theme.iconColor)}
+              </div>
 
-            <div className="flex-1">
-              <div className="flex items-center justify-between mb-1">
-                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
-                  {srv.category}
-                </span>
-                {srv.badge && (
-                  <span className="text-[10px] font-bold text-[#087F5B] bg-emerald-50 px-2 py-0.5 rounded-full">
-                    {srv.badge}
+              <div className="flex-1">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                    {srv.category}
                   </span>
-                )}
-              </div>
+                  {srv.badge && (
+                    <span className={`text-[10px] font-bold ${theme.badgeBg} ${theme.badgeText} px-2 py-0.5 rounded-full`}>
+                      {srv.badge}
+                    </span>
+                  )}
+                </div>
 
-              <h3 className="text-xs font-bold text-slate-900 leading-snug mb-1">
-                {srv.title}
-              </h3>
+                <h3 className="text-xs font-bold text-slate-900 leading-snug mb-1">
+                  {srv.title}
+                </h3>
 
-              <p className="text-[12px] text-slate-600 line-clamp-2 leading-relaxed">
-                {srv.shortDesc}
-              </p>
+                <p className="text-[12px] text-slate-600 line-clamp-2 leading-relaxed">
+                  {srv.shortDesc}
+                </p>
 
-              <div className="mt-2 text-xs font-bold text-[#087F5B] flex items-center gap-1">
-                <span>View Details & Apply</span>
-                <ChevronRight className="w-3.5 h-3.5" />
+                <div 
+                  className="mt-2 text-xs font-bold flex items-center gap-1"
+                  style={{ color: theme.accentColor }}
+                >
+                  <span>View Details & Apply</span>
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       {/* Connect Muslim Banner Bridge */}
       <div 
         onClick={() => setOverlayScreen('connect_muslim')}
-        className="w-full p-4 rounded-3xl bg-gradient-to-r from-[#07543F] to-[#087F5B] text-white flex items-center justify-between cursor-pointer active:scale-98 transition-all shadow-xs"
+        className="w-full p-4 rounded-3xl bg-gradient-to-r from-[#0F2942] via-[#16353C] to-[#07543F] text-white flex items-center justify-between cursor-pointer active:scale-98 transition-all shadow-xs border border-slate-700/30"
       >
         <div>
-          <span className="text-[10px] font-bold uppercase tracking-wider text-amber-300">
+          <span className="text-[10px] font-bold uppercase tracking-wider text-[#D4A72C]">
             Wider Network
           </span>
           <h4 className="text-sm font-bold text-white mt-0.5">
             Looking for Muslim Jobs or Businesses?
           </h4>
-          <p className="text-[11px] text-emerald-100/90 mt-0.5">
+          <p className="text-[11px] text-slate-300 mt-0.5">
             Explore the Connect Muslim Services Ecosystem →
           </p>
         </div>
@@ -141,8 +217,8 @@ export const ServicesScreen: React.FC = () => {
             {/* Modal Header */}
             <div className="flex items-start justify-between mb-4">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center">
-                  {getIcon(activeModalService.iconName)}
+                <div className={`w-12 h-12 rounded-2xl ${getServiceTheme(activeModalService.id).iconBg} border border-slate-100 flex items-center justify-center`}>
+                  {getIcon(activeModalService.iconName, getServiceTheme(activeModalService.id).iconColor)}
                 </div>
                 <div>
                   <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">

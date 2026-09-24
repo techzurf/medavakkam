@@ -167,7 +167,7 @@ export const SettingsScreen: React.FC = () => {
       <div className="bg-white rounded-3xl p-4 border border-slate-200/80 shadow-2xs space-y-4">
         <div className="flex items-center justify-between border-b border-slate-100 pb-3">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-xl bg-emerald-50 text-[#087F5B] flex items-center justify-center">
+            <div className="w-8 h-8 rounded-xl bg-blue-50 text-[#3B6FD8] flex items-center justify-center">
               <BellRing className="w-4 h-4" />
             </div>
             <div>
@@ -191,7 +191,7 @@ export const SettingsScreen: React.FC = () => {
               onClick={requestNotificationPermission}
               className="px-2.5 py-1 rounded-full bg-amber-100 hover:bg-amber-200 text-amber-900 text-[10px] font-bold flex items-center gap-1 transition-colors"
             >
-              <Bell className="w-3 h-3 text-amber-700" />
+              <Bell className="w-3 h-3 text-[#D4A72C]" />
               <span>Allow Notifications</span>
             </button>
           )}
@@ -200,7 +200,7 @@ export const SettingsScreen: React.FC = () => {
         {/* Lead time selector (When to remind) */}
         <div>
           <label className="text-xs font-bold text-slate-700 block mb-1.5 flex items-center gap-1.5">
-            <Clock className="w-3.5 h-3.5 text-[#087F5B]" />
+            <Clock className="w-3.5 h-3.5 text-[#3B6FD8]" />
             <span>Remind Me Before Prayer Begins</span>
           </label>
           <div className="grid grid-cols-3 gap-1.5">
@@ -312,7 +312,7 @@ export const SettingsScreen: React.FC = () => {
       <div className="bg-white rounded-3xl p-4 border border-slate-200/80 shadow-2xs space-y-4">
         <div className="flex items-center justify-between border-b border-slate-100 pb-3">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-xl bg-emerald-50 text-[#087F5B] flex items-center justify-center">
+            <div className="w-8 h-8 rounded-xl bg-purple-50 text-[#7657C8] flex items-center justify-center">
               <Volume2 className="w-4 h-4" />
             </div>
             <div>
@@ -586,7 +586,7 @@ export const SettingsScreen: React.FC = () => {
       {/* 3. Language Switcher */}
       <div className="bg-white rounded-3xl p-4 border border-slate-200/80 shadow-2xs">
         <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
-          <Globe className="w-4 h-4 text-[#087F5B]" />
+          <Globe className="w-4 h-4 text-[#159A9C]" />
           <span>Language (மொழி / اللغة)</span>
         </h3>
 
@@ -611,7 +611,7 @@ export const SettingsScreen: React.FC = () => {
       {/* 4. Accessibility & Modes */}
       <div className="bg-white rounded-3xl p-4 border border-slate-200/80 shadow-2xs space-y-3.5">
         <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
-          <Eye className="w-4 h-4 text-[#087F5B]" />
+          <Eye className="w-4 h-4 text-[#E89B3C]" />
           <span>Accessibility & Community Modes</span>
         </h3>
 
@@ -642,7 +642,7 @@ export const SettingsScreen: React.FC = () => {
           <div>
             <div className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
               <span>Ramadan Mode (ரம்ஜான் முறை)</span>
-              <span className="text-[10px] px-2 py-0.5 rounded-md bg-amber-100 text-amber-900 font-bold">Special</span>
+              <span className="text-[10px] px-2 py-0.5 rounded-md bg-amber-100 text-amber-900 font-bold border border-amber-200">Special</span>
             </div>
             <p className="text-[11px] text-slate-500 max-w-[240px]">
               Activates Suhoor countdown, Iftar alerts, and Taraweeh scheduling.
@@ -651,7 +651,7 @@ export const SettingsScreen: React.FC = () => {
           <button
             onClick={toggleRamadanMode}
             className={`w-12 h-7 rounded-full transition-colors p-1 flex items-center ${
-              settings.ramadanMode ? 'bg-amber-500 justify-end' : 'bg-slate-200 justify-start'
+              settings.ramadanMode ? 'bg-[#D4A72C] justify-end' : 'bg-slate-200 justify-start'
             }`}
           >
             <div className="w-5 h-5 rounded-full bg-white shadow-md"></div>
@@ -662,7 +662,7 @@ export const SettingsScreen: React.FC = () => {
       {/* 5. Calculation Method */}
       <div className="bg-white rounded-3xl p-4 border border-slate-200/80 shadow-2xs space-y-3">
         <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
-          <Sliders className="w-4 h-4 text-[#087F5B]" />
+          <Sliders className="w-4 h-4 text-[#3B6FD8]" />
           <span>Astronomical Calculation Method</span>
         </h3>
 
@@ -719,7 +719,7 @@ export const SettingsScreen: React.FC = () => {
 
       {/* App Version Info */}
       <div className="text-center text-[11px] text-slate-400 py-2">
-        Al-Noor Masjid Mobile App · Version 2.5.0 (Community Build)
+        Madina Masjid Medavakkam Mobile App · Version 2.5.0 (Community Build)
         <br />Designed with love & ihsan for the Ummah
       </div>
     </div>

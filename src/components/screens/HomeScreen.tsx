@@ -5,6 +5,7 @@ import { QuickActions } from '../home/QuickActions';
 import { AnnouncementBanner } from '../home/AnnouncementBanner';
 import { ConnectMuslimPreview } from '../home/ConnectMuslimPreview';
 import { UpcomingEventsPreview } from '../home/UpcomingEventsPreview';
+import { LatestVideosSection } from '../home/LatestVideosSection';
 import { DailyReminderCard } from '../home/DailyReminderCard';
 import { 
   Bell, 
@@ -34,9 +35,10 @@ export const HomeScreen: React.FC = () => {
       {/* Top Greeting & Date Block */}
       <div className="flex items-start justify-between">
         <div>
-          <span className="text-xs font-semibold text-[#087F5B] flex items-center gap-1">
-            <span>✨</span> {t('assalamuAlaikum')},
-          </span>
+          <div className="flex items-center gap-1.5 text-xs font-bold text-[#087F5B] mb-0.5">
+            <MosqueIcon className="w-3.5 h-3.5 text-[#D4A72C]" />
+            <span>Madina Masjid Medavakkam</span>
+          </div>
           <h1 className="text-xl font-extrabold text-slate-900 tracking-tight leading-tight">
             Brother Rayyan
           </h1>
@@ -45,15 +47,19 @@ export const HomeScreen: React.FC = () => {
             <span>·</span>
             <span>{gregorianDate}</span>
           </div>
+          <div className="text-[10px] text-slate-500 mt-0.5 flex items-center gap-1">
+            <MapPin className="w-3 h-3 text-[#087F5B]" />
+            <span>M.K.B. Nagar, Chennai</span>
+          </div>
         </div>
 
         {/* Quick Masjid Location Pin */}
         <button
           onClick={() => setOverlayScreen('about_masjid')}
-          className="flex items-center gap-1 py-1 px-2.5 rounded-full bg-emerald-50 border border-emerald-100 text-[11px] font-semibold text-[#087F5B] hover:bg-emerald-100 transition-colors"
+          className="flex items-center gap-1 py-1 px-2.5 rounded-full bg-[#E8F7F1] border border-emerald-100 text-[11px] font-semibold text-[#087F5B] hover:bg-emerald-100 transition-colors shrink-0 mt-0.5"
         >
           <MapPin className="w-3 h-3 text-[#087F5B]" />
-          <span>Al-Noor</span>
+          <span>Medavakkam</span>
         </button>
       </div>
 
@@ -66,13 +72,16 @@ export const HomeScreen: React.FC = () => {
       {/* 3. Important Masjid Announcement / Urgent Notice */}
       <AnnouncementBanner />
 
-      {/* 4. Connect Muslim Services Ecosystem Card */}
-      <ConnectMuslimPreview />
-
-      {/* 5. Upcoming Events Carousel */}
+      {/* 4. Upcoming Events Carousel */}
       <UpcomingEventsPreview />
 
-      {/* 6. Today's Spiritual Reminder (Ayah & Hadith) */}
+      {/* 5. Latest Videos Horizontal YouTube Scroller */}
+      <LatestVideosSection />
+
+      {/* 6. Connect Muslim Services Ecosystem Card */}
+      <ConnectMuslimPreview />
+
+      {/* 7. Today's Spiritual Reminder (Ayah & Hadith) */}
       <DailyReminderCard />
 
       {/* 7. Community Emergency & Help Assistance Strip */}

@@ -33,7 +33,7 @@ export const AnnouncementBanner: React.FC = () => {
 
         <button
           onClick={() => setOverlayScreen('notifications')}
-          className="text-xs font-bold text-[#087F5B] hover:text-[#07543F] flex items-center gap-1 active:translate-x-0.5 transition-transform"
+          className="text-xs font-bold text-[#B45309] hover:text-[#92400E] flex items-center gap-1 active:translate-x-0.5 transition-transform"
         >
           <span>Read Full Advisory</span>
           <ChevronRight className="w-3.5 h-3.5" />

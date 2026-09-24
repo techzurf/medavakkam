@@ -32,8 +32,8 @@ export const MasjidLocatorScreen: React.FC = () => {
     <div className="w-full flex flex-col gap-4 px-4 pt-3 pb-8">
       {/* Header */}
       <div>
-        <span className="text-[11px] font-bold uppercase tracking-wider text-[#087F5B]">
-          Bay Area & Regional
+        <span className="text-[11px] font-bold uppercase tracking-wider text-[#4DA3E8]">
+          M.K.B. Nagar, Chennai
         </span>
         <h1 className="text-xl font-bold text-slate-900 tracking-tight">
           Nearby Masjid Locator
@@ -50,38 +50,38 @@ export const MasjidLocatorScreen: React.FC = () => {
           type="text"
           value={search}
           onChange={e => setSearch(e.target.value)}
-          placeholder="Search by mosque name, city, or zip code..."
-          className="w-full h-11 pl-10 pr-4 bg-white rounded-2xl border border-slate-200/80 text-xs text-slate-800 placeholder:text-slate-400 focus:outline-hidden focus:border-[#087F5B]"
+          placeholder="Search by mosque name, area, or road..."
+          className="w-full h-11 pl-10 pr-4 bg-white rounded-2xl border border-slate-200/80 text-xs text-slate-800 placeholder:text-slate-400 focus:outline-hidden focus:border-[#4DA3E8]"
         />
       </div>
 
       {/* Stylized Visual Map Preview */}
-      <div className="w-full h-44 rounded-3xl bg-[#E8F1EC] border border-emerald-900/10 overflow-hidden relative shadow-inner flex flex-col items-center justify-center p-4">
+      <div className="w-full h-44 rounded-3xl bg-[#EBF5FB] border border-sky-200/60 overflow-hidden relative shadow-inner flex flex-col items-center justify-center p-4">
         {/* Subtle grid map lines */}
-        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#087F5B_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#4DA3E8_1px,transparent_1px)] [background-size:16px_16px]"></div>
         
         {/* Animated Map Pins */}
         <div className="relative z-10 flex flex-col items-center">
           <div className="relative flex items-center justify-center">
-            <span className="w-12 h-12 rounded-full bg-emerald-500/20 animate-ping absolute"></span>
+            <span className="w-12 h-12 rounded-full bg-sky-400/20 animate-ping absolute"></span>
             <div className="w-10 h-10 rounded-full bg-[#087F5B] text-white flex items-center justify-center shadow-lg border-2 border-white">
               <MosqueIcon className="w-5 h-5 text-[#D4A72C]" />
             </div>
           </div>
           <span className="text-xs font-bold text-slate-800 mt-2 px-3 py-1 bg-white/90 backdrop-blur-xs rounded-full shadow-xs">
-            Al-Noor Islamic Center (0.0 mi)
+            Madina Masjid Medavakkam (0.0 km)
           </span>
         </div>
 
         {/* Nearby mini pin indicators */}
-        <div className="absolute top-6 left-8 flex items-center gap-1 bg-white/80 px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-xs">
-          <MapPin className="w-3 h-3 text-emerald-700" />
-          <span>Dar-us-Salam (2.4 mi)</span>
+        <div className="absolute top-6 left-8 flex items-center gap-1 bg-white/90 px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-xs border border-sky-100">
+          <MapPin className="w-3 h-3 text-[#3B6FD8]" />
+          <span>Dar-us-Salam (1.2 km)</span>
         </div>
 
-        <div className="absolute bottom-6 right-6 flex items-center gap-1 bg-white/80 px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-xs">
-          <MapPin className="w-3 h-3 text-emerald-700" />
-          <span>Al-Taqwa (4.8 mi)</span>
+        <div className="absolute bottom-6 right-6 flex items-center gap-1 bg-white/90 px-2 py-0.5 rounded-full text-[10px] font-bold text-slate-700 shadow-xs border border-sky-100">
+          <MapPin className="w-3 h-3 text-[#3B6FD8]" />
+          <span>Al-Taqwa (2.8 km)</span>
         </div>
       </div>
 
@@ -95,7 +95,7 @@ export const MasjidLocatorScreen: React.FC = () => {
           >
             <div className="flex items-start justify-between mb-2">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-[#087F5B] shrink-0">
+                <div className="w-10 h-10 rounded-2xl bg-sky-50 border border-sky-100 flex items-center justify-center text-[#4DA3E8] shrink-0">
                   <MosqueIcon className="w-5 h-5" />
                 </div>
                 <div>
@@ -110,7 +110,7 @@ export const MasjidLocatorScreen: React.FC = () => {
               </div>
 
               <div className="text-right">
-                <span className="text-xs font-bold text-[#087F5B] block">
+                <span className="text-xs font-bold text-[#4DA3E8] block">
                   {masjid.distance}
                 </span>
                 <span className="text-[10px] text-slate-400">
@@ -130,11 +130,11 @@ export const MasjidLocatorScreen: React.FC = () => {
 
             {/* Bottom Row */}
             <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs">
-              <span className="text-[11px] text-emerald-800 font-medium">
-                Next: {masjid.nextPrayer}
+              <span className="text-[11px] text-slate-600 font-medium">
+                Next: <strong className="text-slate-800">{masjid.nextPrayer}</strong>
               </span>
 
-              <button className="px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-[#087F5B] text-xs font-bold flex items-center gap-1 transition-colors">
+              <button className="px-3 py-1.5 rounded-xl bg-sky-50 hover:bg-sky-100 text-[#3B6FD8] text-xs font-bold flex items-center gap-1 transition-colors">
                 <Navigation className="w-3 h-3" />
                 <span>Directions</span>
               </button>

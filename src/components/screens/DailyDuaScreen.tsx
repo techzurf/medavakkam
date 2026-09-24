@@ -100,6 +100,23 @@ export const DailyDuaScreen: React.FC = () => {
           const isFav = !!dua.isFavorite;
           const isCopied = copiedId === dua.id;
 
+          // Category color accent
+          const getCategoryAccent = (cat: string) => {
+            switch (cat) {
+              case 'Morning':
+              case 'Evening':
+                return { text: 'text-[#B45309]', bg: 'bg-amber-50', border: 'border-amber-200' };
+              case 'Protection':
+              case 'Family':
+                return { text: 'text-[#7657C8]', bg: 'bg-purple-50', border: 'border-purple-200' };
+              case 'Travel':
+                return { text: 'text-[#159A9C]', bg: 'bg-teal-50', border: 'border-teal-200' };
+              default:
+                return { text: 'text-[#087F5B]', bg: 'bg-emerald-50', border: 'border-emerald-200' };
+            }
+          };
+          const catStyle = getCategoryAccent(dua.category);
+
           return (
             <div
               key={dua.id}
@@ -108,10 +125,10 @@ export const DailyDuaScreen: React.FC = () => {
               {/* Header with Title and Favorite button */}
               <div className="flex items-start justify-between">
                 <div>
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-slate-500">
+                  <span className={`text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-md border ${catStyle.text} ${catStyle.bg} ${catStyle.border}`}>
                     {dua.category}
                   </span>
-                  <h3 className="text-sm font-bold text-slate-900 leading-snug">
+                  <h3 className="text-sm font-bold text-slate-900 leading-snug mt-1.5">
                     {dua.title}
                   </h3>
                   {settings.language === 'ta' && dua.tamilTitle && (
@@ -142,8 +159,8 @@ export const DailyDuaScreen: React.FC = () => {
                 </div>
               </div>
 
-              {/* Arabic Script */}
-              <p className="text-right text-base leading-loose font-arabic text-emerald-950 font-bold bg-emerald-50/40 p-3 rounded-2xl border border-emerald-100/60 dir-rtl" dir="rtl">
+              {/* Arabic Script: Spiritual Soft Cream Parchment with Deep Green Script */}
+              <p className="text-right text-base leading-loose font-arabic text-[#07543F] font-bold bg-[#FAF7EE] p-3.5 rounded-2xl border border-[#EADBBD] shadow-2xs dir-rtl" dir="rtl">
                 {dua.arabic}
               </p>
 
@@ -159,16 +176,16 @@ export const DailyDuaScreen: React.FC = () => {
 
               {/* Tamil Translation if selected */}
               {(settings.language === 'ta' || true) && dua.tamilMeaning && (
-                <div className="p-2.5 rounded-xl bg-slate-50 text-[11px] text-emerald-900/90 leading-relaxed font-normal">
-                  <span className="font-bold text-emerald-950 block text-[10px] mb-0.5">தமிழ் மொழிபெயர்ப்பு:</span>
+                <div className="p-2.5 rounded-xl bg-slate-50 text-[11px] text-slate-700 leading-relaxed font-normal border border-slate-100">
+                  <span className="font-bold text-[#087F5B] block text-[10px] mb-0.5">தமிழ் மொழிபெயர்ப்பு:</span>
                   {dua.tamilMeaning}
                 </div>
               )}
 
               {/* Source & Occasion */}
               <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
-                <span className="font-semibold text-emerald-800">{dua.reference}</span>
-                <span className="text-slate-500">{dua.benefit}</span>
+                <span className="font-semibold text-[#087F5B]">{dua.reference}</span>
+                <span className="text-slate-500 font-medium">{dua.benefit}</span>
               </div>
             </div>
           );

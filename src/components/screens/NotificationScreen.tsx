@@ -37,13 +37,57 @@ export const NotificationScreen: React.FC = () => {
     return activeCategory === 'All' || n.category === activeCategory;
   });
 
-  const getCategoryIcon = (category: string, urgent?: boolean) => {
-    if (urgent) return <AlertCircle className="w-4 h-4 text-amber-700" />;
+  const getNotificationTheme = (category: string, urgent?: boolean) => {
+    if (urgent) {
+      return {
+        icon: <AlertCircle className="w-4 h-4 text-[#D4A72C]" />,
+        iconBg: 'bg-amber-100/70',
+        badgeColor: 'text-[#B45309]',
+        dotColor: 'bg-[#D4A72C]',
+        unreadBorder: 'border-amber-300/80',
+      };
+    }
     switch (category) {
-      case 'Prayer Alerts': return <Clock className="w-4 h-4 text-[#087F5B]" />;
-      case 'Events': return <Calendar className="w-4 h-4 text-teal-700" />;
-      case 'Community Services': return <HeartHandshake className="w-4 h-4 text-rose-700" />;
-      default: return <Bell className="w-4 h-4 text-slate-700" />;
+      case 'Prayer Alerts':
+        return {
+          icon: <Clock className="w-4 h-4 text-[#087F5B]" />,
+          iconBg: 'bg-[#E8F7F1]',
+          badgeColor: 'text-[#087F5B]',
+          dotColor: 'bg-[#087F5B]',
+          unreadBorder: 'border-emerald-300/80',
+        };
+      case 'Events':
+        return {
+          icon: <Calendar className="w-4 h-4 text-[#3B6FD8]" />,
+          iconBg: 'bg-blue-50',
+          badgeColor: 'text-[#3B6FD8]',
+          dotColor: 'bg-[#3B6FD8]',
+          unreadBorder: 'border-blue-300/80',
+        };
+      case 'Community Services':
+        return {
+          icon: <HeartHandshake className="w-4 h-4 text-[#159A9C]" />,
+          iconBg: 'bg-teal-50',
+          badgeColor: 'text-[#159A9C]',
+          dotColor: 'bg-[#159A9C]',
+          unreadBorder: 'border-teal-300/80',
+        };
+      case 'Important Notices':
+        return {
+          icon: <AlertCircle className="w-4 h-4 text-[#D4A72C]" />,
+          iconBg: 'bg-amber-50',
+          badgeColor: 'text-[#B45309]',
+          dotColor: 'bg-[#D4A72C]',
+          unreadBorder: 'border-amber-300/80',
+        };
+      default:
+        return {
+          icon: <Bell className="w-4 h-4 text-[#E87961]" />,
+          iconBg: 'bg-rose-50',
+          badgeColor: 'text-[#E87961]',
+          dotColor: 'bg-[#E87961]',
+          unreadBorder: 'border-rose-300/80',
+        };
     }
   };
 
@@ -75,14 +119,14 @@ export const NotificationScreen: React.FC = () => {
       </div>
 
       {/* Prayer Audio Reminder Status Banner */}
-      <div className="p-3 rounded-2xl bg-emerald-50 border border-emerald-200/80 flex items-center justify-between gap-2 text-xs">
+      <div className="p-3 rounded-2xl bg-[#E8F7F1] border border-emerald-200/80 flex items-center justify-between gap-2 text-xs">
         <div className="flex items-center gap-2">
           <Clock className="w-4 h-4 text-[#087F5B] shrink-0" />
           <div>
-            <span className="font-bold text-emerald-950 block text-[11px]">
+            <span className="font-bold text-slate-900 block text-[11px]">
               Prayer Tone: {settings.athanSound} ({settings.reminderMinutesBefore === 0 ? 'At Adhan' : `${settings.reminderMinutesBefore}m before`})
             </span>
-            <span className="text-[10px] text-emerald-700">
+            <span className="text-[10px] text-slate-600">
               Audio notifications active for configured prayers
             </span>
           </div>
@@ -124,52 +168,55 @@ export const NotificationScreen: React.FC = () => {
             <p className="text-xs text-slate-400 mt-1">You are all caught up!</p>
           </div>
         ) : (
-          filtered.map(item => (
-            <div
-              key={item.id}
-              onClick={() => markAsRead(item.id)}
-              className={`w-full p-4 rounded-3xl border transition-all cursor-pointer flex items-start gap-3.5 ${
-                !item.isRead 
-                  ? 'bg-white border-[#087F5B]/30 shadow-xs' 
-                  : 'bg-slate-50/70 border-slate-200/60 opacity-90'
-              }`}
-            >
-              <div className={`w-10 h-10 rounded-2xl flex items-center justify-center shrink-0 mt-0.5 ${
-                item.urgent ? 'bg-amber-100' : 'bg-emerald-50'
-              }`}>
-                {getCategoryIcon(item.category, item.urgent)}
-              </div>
+          filtered.map(item => {
+            const theme = getNotificationTheme(item.category, item.urgent);
+            return (
+              <div
+                key={item.id}
+                onClick={() => markAsRead(item.id)}
+                className={`w-full p-4 rounded-3xl border transition-all cursor-pointer flex items-start gap-3.5 relative ${
+                  !item.isRead 
+                    ? `bg-white ${theme.unreadBorder} shadow-xs` 
+                    : 'bg-slate-50/70 border-slate-200/60 opacity-90'
+                }`}
+              >
+                {!item.isRead && (
+                  <span className={`absolute top-4 right-4 w-2 h-2 rounded-full ${theme.dotColor}`}></span>
+                )}
 
-              <div className="flex-1">
-                <div className="flex items-center justify-between mb-1">
-                  <span className={`text-[10px] font-bold uppercase tracking-wider ${
-                    item.urgent ? 'text-amber-800' : 'text-slate-500'
-                  }`}>
-                    {item.category}
-                  </span>
-                  <span className="text-[10px] text-slate-400 font-medium">
-                    {item.timeAgo}
-                  </span>
+                <div className={`w-10 h-10 rounded-2xl flex items-center justify-center shrink-0 mt-0.5 ${theme.iconBg}`}>
+                  {theme.icon}
                 </div>
 
-                <h3 className={`text-xs font-bold leading-snug mb-1 ${
-                  !item.isRead ? 'text-slate-900 font-extrabold' : 'text-slate-800'
-                }`}>
-                  {item.title}
-                </h3>
-
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  {item.message}
-                </p>
-
-                {!item.isRead && (
-                  <div className="mt-2 flex items-center gap-1 text-[11px] font-bold text-[#087F5B]">
-                    <span>Tap to mark read</span>
+                <div className="flex-1 pr-3">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className={`text-[10px] font-bold uppercase tracking-wider ${theme.badgeColor}`}>
+                      {item.category}
+                    </span>
+                    <span className="text-[10px] text-slate-400 font-medium">
+                      {item.timeAgo}
+                    </span>
                   </div>
-                )}
+
+                  <h3 className={`text-xs font-bold leading-snug mb-1 ${
+                    !item.isRead ? 'text-slate-900 font-extrabold' : 'text-slate-800'
+                  }`}>
+                    {item.title}
+                  </h3>
+
+                  <p className="text-xs text-slate-600 leading-relaxed">
+                    {item.message}
+                  </p>
+
+                  {!item.isRead && (
+                    <div className="mt-2 flex items-center gap-1 text-[11px] font-bold text-[#087F5B]">
+                      <span>Tap to mark read</span>
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          ))
+            );
+          })
         )}
       </div>
     </div>

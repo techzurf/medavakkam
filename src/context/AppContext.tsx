@@ -195,7 +195,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         setNotificationPermission(permission);
         if (permission === 'granted') {
           try {
-            new Notification('Al-Noor Masjid Notifications Active', {
+            new Notification('Madina Masjid Notifications Active', {
               body: 'You will now receive prayer approaching reminders according to your schedule.',
               icon: '/favicon.ico'
             });
@@ -292,8 +292,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
           ? `🕌 Adhan Time for ${prayerName} Prayer (${time})` 
           : `⏳ ${prayerName} Prayer in ${minutesLeft} Minutes (${time})`;
         const body = iqamahTime 
-          ? `Al-Noor Masjid congregation Iqamah at ${iqamahTime}. Prepare for Salah.`
-          : `Al-Noor Masjid Adhan time is approaching.`;
+          ? `Madina Masjid congregation Iqamah at ${iqamahTime}. Prepare for Salah.`
+          : `Madina Masjid Adhan time is approaching.`;
 
         new Notification(title, {
           body,

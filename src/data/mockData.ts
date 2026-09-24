@@ -10,44 +10,44 @@ import {
 } from '../types';
 
 export const MASJID_INFO = {
-  name: "Al-Noor Islamic Center",
-  tamilName: "அந்-நூர் இஸ்லாமிய மையம் & மஸ்ஜித்",
-  arabicName: "مركز ومسجد النور الإسلامي",
-  shortName: "Masjid Al-Noor",
+  name: "Madina Masjid Medavakkam",
+  tamilName: "மதீனா மஸ்ஜித் மேடவாக்கம்",
+  arabicName: "مسجد المدينة ميدافاكام",
+  shortName: "Madina Masjid Medavakkam",
   tagline: "A peaceful sanctuary for prayer, knowledge, and community care",
-  establishedYear: 1998,
-  address: "420 Community Boulevard, Green Valley, CA 94588",
-  city: "San Francisco Bay Area",
-  capacity: "1,800 worshippers",
-  phone: "+1 (555) 786-2410",
-  email: "contact@alnoormasjid.org",
-  website: "www.alnoormasjid.org",
+  establishedYear: 2004,
+  address: "No. P.P. 8, 3rd Main Road, M.K.B. Nagar, Chennai - 600 039.",
+  city: "M.K.B. Nagar, Chennai",
+  capacity: "1,500 worshippers",
+  phone: "+91 44 2551 2410",
+  email: "contact@madinamasjid.org",
+  website: "www.madinamasjid.org",
   imams: [
     {
       name: "Sheikh Dr. Abdullah Al-Rahman",
       role: "Head Imam & Religious Director",
       qualification: "Ph.D in Usul al-Fiqh, Al-Azhar University",
-      bio: "Serving the Al-Noor community for 14 years with emphasis on youth mentorship, marital counseling, and interfaith understanding.",
-      languages: ["Arabic", "English", "Urdu"]
+      bio: "Serving the Madina Masjid community for 14 years with emphasis on youth mentorship, marital counseling, and interfaith understanding.",
+      languages: ["Arabic", "English", "Tamil", "Urdu"]
     },
     {
       name: "Ustadh Bilal Farooq",
       role: "Resident Scholar & Youth Director",
       qualification: "Graduate of Madinah Islamic University",
-      bio: "Leads weekly youth Halaqahs, Quran memorization academy, and coordinates community food drives.",
+      bio: "Leads weekly youth Halaqahs, Quran memorization academy, and coordinates community welfare drives.",
       languages: ["English", "Tamil", "Arabic"]
     }
   ],
   muadhin: "Hafiz Muhammad Tariq",
   facilities: [
-    "Spacious Main Prayer Hall (1,200 capacity)",
-    "Dedicated Sisters' Prayer Mezzanine with private elevator",
-    "Modern Wudu & Ablution stations (Hot water & accessible)",
+    "Spacious Main Prayer Hall (1,000 capacity)",
+    "Dedicated Sisters' Prayer Area with separate entrance",
+    "Clean Wudu & Ablution stations (24/7 water supply & accessible)",
     "Wheelchair accessible entrances & ramps",
-    "Free on-site parking lot with 280 spaces & EV chargers",
-    "Islamic Library & Quiet Reading Room",
-    "Multi-purpose Community Banquet Hall",
-    "Funeral preparation & cold storage facility"
+    "On-site two-wheeler & car parking facility",
+    "Islamic Library & Children's Reading Corner",
+    "Community Welfare & Zakat Distribution Desk",
+    "Janazah preparation & hearse coordination"
   ]
 };
 
@@ -132,8 +132,8 @@ export const MOCK_EVENTS: EventItem[] = [
     time: '10:00 AM - 01:30 PM',
     location: 'Main Prayer Hall & Live Stream',
     speaker: 'Sheikh Dr. Abdullah Al-Rahman',
-    speakerRole: 'Head Imam, Al-Noor Islamic Center',
-    imageFallbackGradient: 'from-emerald-800 to-teal-900',
+    speakerRole: 'Head Imam, Madina Masjid Medavakkam',
+    imageFallbackGradient: 'from-[#D4A72C] to-[#B45309]',
     description: 'An insightful spiritual deep-dive into Imam Al-Ghazali\'s teachings on overcoming envy, pride, and spiritual numbness in modern times. Free childcare provided in the Youth Center.',
     registrationRequired: true,
     registeredCount: 142,
@@ -150,7 +150,7 @@ export const MOCK_EVENTS: EventItem[] = [
     location: 'Masjid Community Sports Turf',
     speaker: 'Ustadh Bilal Farooq',
     speakerRole: 'Youth Director',
-    imageFallbackGradient: 'from-teal-800 to-emerald-950',
+    imageFallbackGradient: 'from-[#3B6FD8] to-[#1D4ED8]',
     description: 'Friendly 7-a-side community tournament followed by Maghrib prayer in congregation and an open Q&A circle over refreshments.',
     registrationRequired: true,
     registeredCount: 56,
@@ -167,7 +167,7 @@ export const MOCK_EVENTS: EventItem[] = [
     location: 'Sisters Mezzanine Suite',
     speaker: 'Ustadha Maryam Al-Khatib',
     speakerRole: 'Ijazah Holder in Hafs & Warsh',
-    imageFallbackGradient: 'from-emerald-900 to-stone-900',
+    imageFallbackGradient: 'from-[#7657C8] to-[#5B21B6]',
     description: 'Practical recitation corrections focusing on Surah Al-Kahf, followed by a warm discussion on balancing modern career and Islamic home life.',
     registrationRequired: true,
     registeredCount: 48,
@@ -184,7 +184,7 @@ export const MOCK_EVENTS: EventItem[] = [
     location: 'Education Wing Classrooms 1-4',
     speaker: 'Hafiz Muhammad Tariq & Faculty',
     speakerRole: 'Quran Academy Director',
-    imageFallbackGradient: 'from-amber-900 to-emerald-900',
+    imageFallbackGradient: 'from-[#E89B3C] to-[#C2410C]',
     description: 'Structured Tajweed, Arabic reading, Prophet stories, and daily Adab for ages 5-14. Term 2 registrations now open.',
     registrationRequired: true,
     registeredCount: 88,
@@ -193,20 +193,37 @@ export const MOCK_EVENTS: EventItem[] = [
   },
   {
     id: 'evt-5',
-    title: 'Masjid New Expansion Project: Annual Dinner',
-    tamilTitle: 'மஸ்ஜித் புதிய விரிவாக்க நிதி திரட்டும் இரவு விருந்து',
-    category: 'Fundraising',
+    title: 'Community Food Drive & Neighbors Day',
+    tamilTitle: 'சமூக உணவு விநியோகம் & நல்லிணக்க தினம்',
+    category: 'Community',
+    date: 'Saturday, Oct 03, 2026',
+    time: '11:00 AM - 02:00 PM',
+    location: 'Community Hall Courtyard',
+    speaker: 'Masjid Volunteer Board',
+    speakerRole: 'Outreach Coordinators',
+    imageFallbackGradient: 'from-[#159A9C] to-[#0F766E]',
+    description: 'Packaging fresh produce and non-perishables for local families and vulnerable seniors. Open to all volunteers.',
+    registrationRequired: false,
+    registeredCount: 74,
+    capacity: 120,
+    price: 'Free Community Event'
+  },
+  {
+    id: 'evt-6',
+    title: 'Quranic Sciences & Tadabbur Intensive',
+    tamilTitle: 'குர்ஆன் ததப்பூர் சிந்தனைப் பயிலரங்கம்',
+    category: 'Quran',
     date: 'Friday, Oct 09, 2026',
-    time: '06:30 PM - 09:30 PM',
-    location: 'Grand Ballroom, Civic Center',
-    speaker: 'Guest Scholars & Community Leaders',
-    speakerRole: 'Keynote Speakers',
-    imageFallbackGradient: 'from-yellow-900 to-emerald-900',
-    description: 'Help us build 8 new classrooms, an elder wellness room, and an expanded sisters wudu facility. 100% tax deductible donation.',
+    time: '07:30 PM - 09:30 PM',
+    location: 'Main Prayer Hall & Library',
+    speaker: 'Sheikh Dr. Abdullah Al-Rahman',
+    speakerRole: 'Head Imam',
+    imageFallbackGradient: 'from-[#087F5B] to-[#07543F]',
+    description: 'Reflective recitation analysis of Juz Amma with root-word linguistic nuances and contemporary applications.',
     registrationRequired: true,
-    registeredCount: 310,
-    capacity: 450,
-    price: '$30/person'
+    registeredCount: 165,
+    capacity: 220,
+    price: 'Free Admission'
   }
 ];
 
@@ -225,8 +242,8 @@ export const MOCK_SERVICES: ServiceItem[] = [
       'Rent agreement or utility notice if requesting housing aid'
     ],
     contactPerson: 'Zakat Committee Lead: Brother Farooq',
-    contactPhone: '+1 (555) 786-2412',
-    contactEmail: 'zakat@alnoormasjid.org'
+    contactPhone: '+91 44 2551 2412',
+    contactEmail: 'zakat@madinamasjid.org'
   },
   {
     id: 'srv-2',
@@ -241,8 +258,8 @@ export const MOCK_SERVICES: ServiceItem[] = [
       'Immediate contact of our 24/7 emergency dispatch'
     ],
     contactPerson: 'Funeral Coordinator: Hajji Yusuf',
-    contactPhone: '+1 (555) 786-9911',
-    contactEmail: 'janazah@alnoormasjid.org'
+    contactPhone: '+91 44 2551 9911',
+    contactEmail: 'janazah@madinamasjid.org'
   },
   {
     id: 'srv-3',
@@ -252,13 +269,13 @@ export const MOCK_SERVICES: ServiceItem[] = [
     shortDesc: 'Official Nikah solemnization, pre-marital counseling, and certificates.',
     fullDesc: 'Conduct your sacred marriage ceremony in the blessed ambiance of the Masjid with Sheikh Abdullah Al-Rahman. Includes guidance on Mahr and rights in Islam.',
     requirements: [
-      'Valid state marriage license from county clerk',
+      'Valid state marriage license from registrar office',
       'Two adult Muslim male witnesses with valid IDs',
       'Presence or written authorization of the bride\'s Wali'
     ],
     contactPerson: 'Administration Office',
-    contactPhone: '+1 (555) 786-2410',
-    contactEmail: 'nikah@alnoormasjid.org'
+    contactPhone: '+91 44 2551 2410',
+    contactEmail: 'nikah@madinamasjid.org'
   },
   {
     id: 'srv-4',
@@ -273,8 +290,8 @@ export const MOCK_SERVICES: ServiceItem[] = [
       'Initial intake questionnaire completion'
     ],
     contactPerson: 'Sheikh Dr. Abdullah Al-Rahman',
-    contactPhone: '+1 (555) 786-2415',
-    contactEmail: 'counseling@alnoormasjid.org'
+    contactPhone: '+91 44 2551 2415',
+    contactEmail: 'counseling@madinamasjid.org'
   },
   {
     id: 'srv-5',
@@ -288,8 +305,8 @@ export const MOCK_SERVICES: ServiceItem[] = [
       'Commitment to regular weekly attendance'
     ],
     contactPerson: 'Ustadh Tariq',
-    contactPhone: '+1 (555) 786-2416',
-    contactEmail: 'quran@alnoormasjid.org'
+    contactPhone: '+91 44 2551 2416',
+    contactEmail: 'quran@madinamasjid.org'
   },
   {
     id: 'srv-6',
@@ -303,8 +320,8 @@ export const MOCK_SERVICES: ServiceItem[] = [
       'Attendance at 30-minute orientation session'
     ],
     contactPerson: 'Volunteer Lead: Sister Amina',
-    contactPhone: '+1 (555) 786-2418',
-    contactEmail: 'volunteer@alnoormasjid.org'
+    contactPhone: '+91 44 2551 2418',
+    contactEmail: 'volunteer@madinamasjid.org'
   },
   {
     id: 'srv-7',
@@ -318,8 +335,8 @@ export const MOCK_SERVICES: ServiceItem[] = [
       'Bring reusable grocery bags if possible'
     ],
     contactPerson: 'Food Bank Director: Br. Kareem',
-    contactPhone: '+1 (555) 786-2420',
-    contactEmail: 'foodpantry@alnoormasjid.org'
+    contactPhone: '+91 44 2551 2420',
+    contactEmail: 'foodpantry@madinamasjid.org'
   },
   {
     id: 'srv-8',
@@ -333,8 +350,8 @@ export const MOCK_SERVICES: ServiceItem[] = [
       'Brief description of desired career field'
     ],
     contactPerson: 'Br. Salman (HR Director)',
-    contactPhone: '+1 (555) 786-2422',
-    contactEmail: 'careers@alnoormasjid.org'
+    contactPhone: '+91 44 2551 2422',
+    contactEmail: 'careers@madinamasjid.org'
   }
 ];
 
@@ -345,7 +362,7 @@ export const CONNECT_MUSLIM_ITEMS: ConnectMuslimItem[] = [
     subtitle: 'Halal Employment & Ethical Careers',
     category: 'Careers',
     icon: 'Briefcase',
-    accentColor: '#087F5B',
+    accentColor: '#3B6FD8',
     tag: '42 Local Openings',
     description: 'Browse verified job listings in ethical companies that accommodate Friday Jummah, daily prayer breaks, and family-friendly environments.',
     features: ['Verified halal-compliant workplaces', 'Direct messaging with Muslim recruiters', 'Internships for university youth'],
@@ -369,7 +386,7 @@ export const CONNECT_MUSLIM_ITEMS: ConnectMuslimItem[] = [
     subtitle: 'Sunnah-Aligned Blessed Matchmaking',
     category: 'Family',
     icon: 'Heart',
-    accentColor: '#C05621',
+    accentColor: '#7657C8',
     tag: 'Wali-Guided',
     description: 'A dignified, private, and Islamic approach to finding a righteous spouse, with guardian involvement and verified background references.',
     features: ['Strict privacy & no public photos', 'Imam-moderated meetings', 'Pre-marital character verification'],
@@ -381,7 +398,7 @@ export const CONNECT_MUSLIM_ITEMS: ConnectMuslimItem[] = [
     subtitle: 'From Pre-K to Advanced Alimiyyah',
     category: 'Education',
     icon: 'GraduationCap',
-    accentColor: '#2B6CB0',
+    accentColor: '#087F5B',
     tag: 'Accredited',
     description: 'Explore full-time Islamic schools, homeschool cooperatives, weekend madrasahs, and online Arabic academies within our regional network.',
     features: ['Directory of 8 Islamic schools', 'Parent reviews & tuition guides', 'Homeschool curriculum swap'],
@@ -393,7 +410,7 @@ export const CONNECT_MUSLIM_ITEMS: ConnectMuslimItem[] = [
     subtitle: 'Culturally Sensitive Doctors & Clinics',
     category: 'Healthcare',
     icon: 'Activity',
-    accentColor: '#805AD5',
+    accentColor: '#159A9C',
     tag: 'Confidential Care',
     description: 'Find Muslim pediatricians, female OB-GYNs, mental health therapists, and dentists who understand your faith values and privacy needs.',
     features: ['Female doctors for sisters', 'Faith-based psychological counselors', 'Free health screening clinic days'],
@@ -405,7 +422,7 @@ export const CONNECT_MUSLIM_ITEMS: ConnectMuslimItem[] = [
     subtitle: 'Buy, Sell & Trade Locally',
     category: 'Marketplace',
     icon: 'ShoppingBag',
-    accentColor: '#319795',
+    accentColor: '#E89B3C',
     tag: 'Zero Interest',
     description: 'Safely sell Islamic books, modest apparel, children\'s toys, and household goods within a trusted, verified community circle.',
     features: ['Peer-to-peer neighborhood pickup', 'No transaction fees', 'Donation option for unsold goods'],
@@ -416,9 +433,9 @@ export const CONNECT_MUSLIM_ITEMS: ConnectMuslimItem[] = [
 export const NEARBY_MASJIDS: MasjidItem[] = [
   {
     id: 'masjid-1',
-    name: 'Al-Noor Islamic Center (Current)',
-    address: '420 Community Blvd, Green Valley',
-    distance: '0.0 miles',
+    name: 'Madina Masjid Medavakkam (Current)',
+    address: 'No. P.P. 8, 3rd Main Road, M.K.B. Nagar, Chennai - 600 039.',
+    distance: '0.0 km',
     travelTime: 'You are here',
     rating: 4.9,
     facilities: ["Women's Area", 'Parking', 'Jummah', 'Wheelchair', 'Wudu Hot Water'],
@@ -427,15 +444,15 @@ export const NEARBY_MASJIDS: MasjidItem[] = [
     hasJummah: true,
     hasWheelchair: true,
     nextPrayer: 'Asr at 04:32 PM',
-    phone: '+1 (555) 786-2410',
-    coordinates: { lat: 37.7749, lng: -122.4194 }
+    phone: '+91 44 2551 2410',
+    coordinates: { lat: 13.1167, lng: 80.2500 }
   },
   {
     id: 'masjid-2',
     name: 'Masjid Dar-us-Salam',
-    address: '185 Peace Way, North Hills',
-    distance: '2.4 miles',
-    travelTime: '7 min drive',
+    address: 'M.K.B. Nagar Central, Chennai',
+    distance: '1.2 km',
+    travelTime: '4 min drive',
     rating: 4.8,
     facilities: ["Women's Area", 'Parking', 'Jummah', 'Wheelchair'],
     hasWomenArea: true,
@@ -443,40 +460,40 @@ export const NEARBY_MASJIDS: MasjidItem[] = [
     hasJummah: true,
     hasWheelchair: true,
     nextPrayer: 'Asr at 04:35 PM',
-    phone: '+1 (555) 432-8890',
-    coordinates: { lat: 37.7850, lng: -122.4300 }
+    phone: '+91 44 2551 8890',
+    coordinates: { lat: 13.1180, lng: 80.2520 }
   },
   {
     id: 'masjid-3',
     name: 'Masjid Al-Taqwa & Youth Academy',
-    address: '920 Crescent Ave, East Bay',
-    distance: '4.8 miles',
-    travelTime: '12 min drive',
+    address: 'Vyasarpadi High Road, Chennai',
+    distance: '2.8 km',
+    travelTime: '8 min drive',
     rating: 4.7,
-    facilities: ["Women's Area", 'Parking', 'Jummah', 'Youth Gym'],
+    facilities: ["Women's Area", 'Parking', 'Jummah', 'Youth Wing'],
     hasWomenArea: true,
     hasParking: true,
     hasJummah: true,
     hasWheelchair: true,
     nextPrayer: 'Asr at 04:30 PM',
-    phone: '+1 (555) 321-7766',
-    coordinates: { lat: 37.7600, lng: -122.3900 }
+    phone: '+91 44 2551 7766',
+    coordinates: { lat: 13.1120, lng: 80.2600 }
   },
   {
     id: 'masjid-4',
     name: 'Baitul Mukarram Community Center',
-    address: '55 Heritage Rd, South District',
-    distance: '7.1 miles',
-    travelTime: '18 min drive',
+    address: 'Perambur Market Road, Chennai',
+    distance: '3.5 km',
+    travelTime: '12 min drive',
     rating: 4.9,
-    facilities: ["Women's Area", 'Parking', 'Jummah', 'Halal Kitchen'],
+    facilities: ["Women's Area", 'Parking', 'Jummah', 'Community Hall'],
     hasWomenArea: true,
     hasParking: true,
     hasJummah: true,
     hasWheelchair: false,
     nextPrayer: 'Asr at 04:34 PM',
-    phone: '+1 (555) 908-1122',
-    coordinates: { lat: 37.7400, lng: -122.4500 }
+    phone: '+91 44 2551 1122',
+    coordinates: { lat: 13.1090, lng: 80.2450 }
   }
 ];
 
@@ -560,7 +577,7 @@ export const MOCK_NOTIFICATIONS: NotificationItem[] = [
   {
     id: 'notif-1',
     title: 'Friday Jummah Parking Advisory',
-    message: 'Due to ongoing city road repairs on Community Blvd, please utilize the secondary south gate entrance and carpool where possible.',
+    message: 'Due to road maintenance on 3rd Main Road, please utilize the M.K.B. Nagar side entrance and carpool where possible.',
     timeAgo: '15 mins ago',
     category: 'Important Notices',
     isRead: false,
@@ -610,7 +627,7 @@ export const MOCK_REGISTRATIONS: UserRegistration[] = [
   {
     id: 'reg-101',
     type: 'New Member',
-    title: 'Masjid Membership Card #ALN-8842',
+    title: 'Masjid Membership Card #MMM-8842',
     date: 'Aug 14, 2026',
     status: 'Active'
   },
@@ -682,7 +699,7 @@ export const MOCK_LOST_AND_FOUND = [
   {
     id: 'lf-1',
     title: 'Black Leather Men\'s Wallet with keys',
-    description: 'Black bi-fold wallet containing California driving license and set of 3 keys with crescent keychain.',
+    description: 'Black bi-fold wallet containing ID card and set of 3 keys with crescent keychain.',
     location: 'Sister\'s Entrance Mezzanine',
     date: 'Sep 22, 2026',
     status: 'Held in Office',

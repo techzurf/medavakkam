@@ -49,7 +49,7 @@ export const UpcomingEventsPreview: React.FC = () => {
               <div className="absolute -bottom-6 -right-6 opacity-15">
                 <RubElHizbIcon className="w-24 h-24 text-white" />
               </div>
-              <div className="z-10 text-[11px] text-emerald-100 font-medium">
+              <div className="z-10 text-[11px] text-white/90 font-medium">
                 {event.date}
               </div>
             </div>
@@ -62,7 +62,7 @@ export const UpcomingEventsPreview: React.FC = () => {
                 </h3>
 
                 <div className="flex items-center gap-1.5 text-[11px] text-slate-600 mb-1">
-                  <User className="w-3 h-3 text-[#087F5B] shrink-0" />
+                  <User className="w-3 h-3 text-slate-400 shrink-0" />
                   <span className="truncate">{event.speaker}</span>
                 </div>
 

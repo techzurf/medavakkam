@@ -37,12 +37,12 @@ export const ApproachingPrayerBanner: React.FC<ApproachingPrayerBannerProps> = (
 
         <div className="flex items-start gap-3">
           {/* Animated icon or sound wave */}
-          <div className="w-10 h-10 rounded-xl bg-white/15 border border-white/20 flex items-center justify-center text-amber-300 shrink-0 shadow-inner relative">
+          <div className="w-10 h-10 rounded-xl bg-white/15 border border-white/20 flex items-center justify-center text-[#D4A72C] shrink-0 shadow-inner relative">
             <MosqueIcon className="w-5 h-5" />
             {isPlayingAudio && (
               <span className="absolute -top-1 -right-1 flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D4A72C] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-[#D4A72C]"></span>
               </span>
             )}
           </div>
@@ -50,11 +50,11 @@ export const ApproachingPrayerBanner: React.FC<ApproachingPrayerBannerProps> = (
           {/* Main Info */}
           <div className="flex-1 min-w-0">
             <div className="flex items-center justify-between gap-1">
-              <span className="text-[10px] font-extrabold uppercase tracking-wider text-amber-300 flex items-center gap-1">
+              <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#D4A72C] flex items-center gap-1">
                 <Bell className="w-3 h-3 fill-current" />
                 {isNow ? 'Adhan Time Now' : `Adhan in ${alert.minutesLeft} Minutes`}
               </span>
-              <span className="text-[10px] text-emerald-200 font-arabic font-bold">
+              <span className="text-[10px] text-white/80 font-arabic font-bold">
                 {alert.arabicName}
               </span>
             </div>
@@ -76,7 +76,7 @@ export const ApproachingPrayerBanner: React.FC<ApproachingPrayerBannerProps> = (
             <div className="mt-2.5 pt-2 border-t border-white/15 flex items-center justify-between gap-2">
               <button
                 onClick={onOpenTimetable}
-                className="text-[11px] font-bold text-amber-300 hover:text-white flex items-center gap-1 transition-colors"
+                className="text-[11px] font-bold text-[#D4A72C] hover:text-white flex items-center gap-1 transition-colors"
               >
                 <Calendar className="w-3 h-3" />
                 <span>View Timetable</span>

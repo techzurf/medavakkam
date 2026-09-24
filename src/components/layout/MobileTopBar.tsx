@@ -54,12 +54,12 @@ export const MobileTopBar: React.FC<MobileTopBarProps> = ({
         case 'quran': return 'Quran & Reminders';
         case 'duas': return 'Daily Supplications';
         case 'settings': return 'App Settings';
-        case 'about_masjid': return 'About Al-Noor Masjid';
+        case 'about_masjid': return 'About Madina Masjid';
         case 'lost_found': return 'Lost & Found';
         case 'event_detail': return 'Event Details';
         case 'service_detail': return 'Service Details';
         case 'monthly_timetable': return 'Monthly Prayer Timetable';
-        default: return title || 'Al-Noor Masjid';
+        default: return title || 'Madina Masjid Medavakkam';
       }
     };
 

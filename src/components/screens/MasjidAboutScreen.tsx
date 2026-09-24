@@ -35,55 +35,75 @@ export const MasjidAboutScreen: React.FC = () => {
             <h1 className="text-lg font-extrabold tracking-tight text-white leading-tight">
               {MASJID_INFO.name}
             </h1>
-            <p className="text-xs text-amber-300 font-arabic mt-0.5">
+            <p className="text-xs text-[#D4A72C] font-arabic mt-0.5">
               {MASJID_INFO.arabicName}
             </p>
-            <span className="text-[11px] text-emerald-200 block mt-0.5">
+            <span className="text-[11px] text-white/80 block mt-0.5">
               Established {MASJID_INFO.establishedYear} · Capacity {MASJID_INFO.capacity}
             </span>
           </div>
         </div>
 
-        <p className="text-xs text-emerald-100/90 leading-relaxed">
+        <p className="text-xs text-white/90 leading-relaxed">
           {MASJID_INFO.tagline}
         </p>
 
         <div className="mt-4 pt-3 border-t border-white/15 flex items-center justify-between">
-          <div className="flex items-center gap-1.5 text-xs text-emerald-100">
-            <MapPin className="w-3.5 h-3.5 text-amber-300" />
+          <div className="flex items-center gap-1.5 text-xs text-white/90">
+            <MapPin className="w-3.5 h-3.5 text-[#D4A72C]" />
             <span className="truncate max-w-[200px]">{MASJID_INFO.city}</span>
           </div>
 
           <button
-            onClick={() => alert('Opening navigation directions to Al-Noor Masjid...')}
-            className="px-3 py-1.5 rounded-xl bg-white text-[#087F5B] font-bold text-xs flex items-center gap-1 shadow-xs hover:bg-emerald-50 active:scale-95 transition-all"
+            onClick={() => alert('Opening navigation directions to Madina Masjid Medavakkam...')}
+            className="px-3 py-1.5 rounded-xl bg-white text-[#087F5B] font-bold text-xs flex items-center gap-1 shadow-xs hover:bg-[#E8F7F1] active:scale-95 transition-all"
           >
-            <Navigation className="w-3 h-3" />
+            <Navigation className="w-3 h-3 text-[#D4A72C]" />
             <span>Get Directions</span>
           </button>
+        </div>
+      </div>
+
+      {/* Masjid Full Address & Location Card */}
+      <div className="bg-white rounded-3xl p-4 border border-slate-200/80 shadow-2xs">
+        <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+          <MapPin className="w-4 h-4 text-[#087F5B]" />
+          <span>Masjid Location & Address</span>
+        </h3>
+        <div className="p-3 bg-slate-50 rounded-2xl border border-slate-100 flex flex-col gap-1 text-xs">
+          <span className="font-extrabold text-slate-900 text-[13px]">{MASJID_INFO.name}</span>
+          <span className="text-slate-700 leading-relaxed font-medium">
+            No. P.P. 8, 3rd Main Road,<br />
+            M.K.B. Nagar,<br />
+            Chennai - 600 039.
+          </span>
+          <div className="mt-1 flex items-center gap-1.5 text-[11px] font-semibold text-[#087F5B]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#087F5B]"></span>
+            <span>Location: {MASJID_INFO.city}</span>
+          </div>
         </div>
       </div>
 
       {/* Mission & Purpose */}
       <div className="bg-white rounded-3xl p-4 border border-slate-200/80 shadow-2xs">
         <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-          <ShieldCheck className="w-4 h-4 text-[#087F5B]" />
+          <ShieldCheck className="w-4 h-4 text-[#D4A72C]" />
           <span>Our Sacred Mission</span>
         </h3>
         <p className="text-xs text-slate-600 leading-relaxed mb-3">
-          Al-Noor Islamic Center serves as a spiritual home rooted in Quran and authentic Sunnah. We are committed to fostering sincere worship, classical Islamic education, inter-generational unity, and charitable relief for all people.
+          Madina Masjid Medavakkam serves as a spiritual home rooted in Quran and authentic Sunnah. We are committed to fostering sincere worship, classical Islamic education, inter-generational unity, and charitable relief for all people.
         </p>
         <div className="grid grid-cols-3 gap-2 text-center text-xs">
-          <div className="p-2 bg-emerald-50/60 rounded-xl">
-            <span className="font-extrabold text-[#087F5B] block text-sm">14+</span>
+          <div className="p-2.5 bg-[#E8F7F1] border border-emerald-100 rounded-xl">
+            <span className="font-extrabold text-[#087F5B] block text-sm">20+</span>
             <span className="text-[10px] text-slate-600">Years of Service</span>
           </div>
-          <div className="p-2 bg-amber-50/60 rounded-xl">
-            <span className="font-extrabold text-[#D4A72C] block text-sm">1,800</span>
+          <div className="p-2.5 bg-amber-50 border border-amber-100 rounded-xl">
+            <span className="font-extrabold text-[#D4A72C] block text-sm">1,500</span>
             <span className="text-[10px] text-slate-600">Prayer Capacity</span>
           </div>
-          <div className="p-2 bg-teal-50/60 rounded-xl">
-            <span className="font-extrabold text-teal-800 block text-sm">350+</span>
+          <div className="p-2.5 bg-slate-50 border border-slate-200 rounded-xl">
+            <span className="font-extrabold text-slate-800 block text-sm">450+</span>
             <span className="text-[10px] text-slate-600">Active Families</span>
           </div>
         </div>

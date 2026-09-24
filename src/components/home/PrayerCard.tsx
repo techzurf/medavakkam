@@ -106,14 +106,22 @@ export const PrayerCard: React.FC = () => {
           return (
             <div 
               key={p.id}
-              className={`py-2 px-1 rounded-xl transition-all ${
+              className={`py-2 px-1 rounded-xl transition-all relative ${
                 isNext 
-                  ? 'bg-emerald-50 border border-emerald-300/80 shadow-xs' 
-                  : 'bg-slate-50/70 border border-slate-100'
+                  ? 'bg-[#E8F7F1] border-2 border-[#087F5B] shadow-xs' 
+                  : 'bg-white border border-slate-200/80 shadow-2xs hover:border-slate-300'
               }`}
             >
+              {isNext && (
+                <span className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-[#D4A72C] animate-pulse"></span>
+              )}
+              {!isNext && (
+                <span className={`absolute top-1.5 right-1.5 w-1 h-1 rounded-full ${
+                  p.passed ? 'bg-slate-300' : 'bg-[#D4A72C]/70'
+                }`}></span>
+              )}
               <span className={`text-[11px] font-bold block ${
-                isNext ? 'text-[#087F5B]' : 'text-slate-600'
+                isNext ? 'text-[#087F5B]' : 'text-slate-700'
               }`}>
                 {settings.language === 'ta' ? p.tamilName : p.name}
               </span>
@@ -121,7 +129,7 @@ export const PrayerCard: React.FC = () => {
                 {p.arabicName}
               </span>
               <span className={`text-xs font-bold block mt-1 tabular-nums ${
-                isNext ? 'text-slate-900 font-extrabold' : 'text-slate-700'
+                isNext ? 'text-[#07543F] font-extrabold' : 'text-slate-800'
               }`}>
                 {p.adhanTime.replace(' AM', '').replace(' PM', '')}
               </span>
@@ -136,24 +144,29 @@ export const PrayerCard: React.FC = () => {
       {/* Adhan & Iqamah legend */}
       <div className="mt-2 px-1 flex items-center justify-between text-[10px] text-slate-500 font-medium">
         <span>Top: Adhan / Bottom: Iqamah</span>
-        <span className="text-emerald-800 font-semibold">Location: Masjid Al-Noor</span>
+        <span className="text-[#087F5B] font-semibold flex items-center gap-1">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#D4A72C]"></span>
+          <span>Madina Masjid Medavakkam</span>
+        </span>
       </div>
 
       {/* Friday Jummah Notice Strip */}
       <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs">
         <div className="flex items-center gap-1.5">
-          <Calendar className="w-3.5 h-3.5 text-[#087F5B]" />
+          <Calendar className="w-3.5 h-3.5 text-[#D4A72C]" />
           <span className="font-semibold text-slate-800">
             Jummah: 1st 1:15 PM · 2nd 2:15 PM
           </span>
         </div>
-        <span className="text-[11px] text-slate-500">2 Shifts</span>
+        <span className="text-[11px] font-bold text-[#D4A72C] bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200/60">
+          2 Shifts
+        </span>
       </div>
 
       {/* View Full Prayer Timetable CTA */}
       <button
         onClick={() => setActiveTab('prayers')}
-        className="mt-3 w-full py-2.5 px-3 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200/80 hover:border-emerald-200 text-xs font-bold text-[#087F5B] flex items-center justify-center gap-1.5 active:scale-[0.99] transition-all"
+        className="mt-3 w-full py-2.5 px-3 rounded-xl bg-slate-50 hover:bg-[#E8F7F1] border border-slate-200/80 hover:border-emerald-200 text-xs font-bold text-[#087F5B] flex items-center justify-center gap-1.5 active:scale-[0.99] transition-all"
       >
         <span>{t('viewPrayerTimes')} & Timetable</span>
         <ChevronRight className="w-3.5 h-3.5" />

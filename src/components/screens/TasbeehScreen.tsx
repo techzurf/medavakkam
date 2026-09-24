@@ -63,7 +63,7 @@ export const TasbeehScreen: React.FC = () => {
                 onClick={() => setTasbeehDhikrPreset(p.dhikr, p.meaning, p.target)}
                 className={`min-h-[36px] px-3 py-1 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
                   isSelected 
-                    ? 'bg-[#087F5B] text-white shadow-2xs' 
+                    ? 'bg-[#7657C8] text-white shadow-2xs' 
                     : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200/80'
                 }`}
               >
@@ -74,8 +74,8 @@ export const TasbeehScreen: React.FC = () => {
         </div>
 
         {/* Selected Dhikr Display Card */}
-        <div className="w-full max-w-xs mt-2 bg-white rounded-2xl p-3 border border-slate-200/80 shadow-2xs">
-          <p className="text-xl font-arabic text-[#087F5B] font-bold mb-1">
+        <div className="w-full max-w-xs mt-2 bg-white rounded-2xl p-3 border border-purple-100 shadow-2xs">
+          <p className="text-xl font-arabic text-[#7657C8] font-bold mb-1">
             {currentPreset.arabic}
           </p>
           <p className="text-xs text-slate-800 font-bold">
@@ -96,7 +96,7 @@ export const TasbeehScreen: React.FC = () => {
               cx="128"
               cy="128"
               r="115"
-              stroke="#E2E8F0"
+              stroke="#E9D5FF"
               strokeWidth="8"
               fill="transparent"
             />
@@ -104,7 +104,7 @@ export const TasbeehScreen: React.FC = () => {
               cx="128"
               cy="128"
               r="115"
-              stroke="#087F5B"
+              stroke="#7657C8"
               strokeWidth="8"
               strokeDasharray={2 * Math.PI * 115}
               strokeDashoffset={2 * Math.PI * 115 * (1 - progressPercent / 100)}
@@ -117,18 +117,18 @@ export const TasbeehScreen: React.FC = () => {
           {/* Huge Touch Counter Button */}
           <button
             onClick={handleTap}
-            className={`absolute w-52 h-52 rounded-full bg-gradient-to-br from-[#087F5B] to-[#054432] text-white shadow-xl flex flex-col items-center justify-center transition-all duration-100 active:scale-95 cursor-pointer ${
-              tapEffect ? 'ring-8 ring-emerald-400/40 scale-95' : 'hover:shadow-2xl'
+            className={`absolute w-52 h-52 rounded-full bg-gradient-to-br from-[#7657C8] via-[#6344B5] to-[#452B87] text-white shadow-xl flex flex-col items-center justify-center transition-all duration-100 active:scale-95 cursor-pointer ${
+              tapEffect ? 'ring-8 ring-purple-400/40 scale-95' : 'hover:shadow-2xl'
             }`}
             aria-label="Tap to Count Dhikr"
           >
-            <span className="text-[11px] font-bold text-amber-300 uppercase tracking-widest mb-1">
+            <span className="text-[11px] font-bold text-[#D4A72C] uppercase tracking-widest mb-1">
               Tap Anywhere
             </span>
             <span className="text-5xl font-extrabold font-mono tracking-tight tabular-nums text-white">
               {tasbeehCount}
             </span>
-            <span className="text-xs text-emerald-200 mt-1 font-semibold">
+            <span className="text-xs text-[#E8F7F1] mt-1 font-semibold">
               Goal: {tasbeehTarget}
             </span>
           </button>
@@ -137,7 +137,7 @@ export const TasbeehScreen: React.FC = () => {
         {/* Lap Target Achieved Banner */}
         {isTargetCompleted && (
           <div className="mt-2 inline-flex items-center gap-1.5 px-3 py-1 bg-amber-100 text-amber-900 border border-amber-300 rounded-full text-xs font-bold animate-bounce">
-            <CheckCircle2 className="w-4 h-4 text-emerald-800" />
+            <CheckCircle2 className="w-4 h-4 text-[#7657C8]" />
             <span>Target Reached! SubhanAllah</span>
           </div>
         )}
@@ -158,7 +158,7 @@ export const TasbeehScreen: React.FC = () => {
                 }}
                 className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
                   tasbeehTarget === tgt 
-                    ? 'bg-[#087F5B] text-white' 
+                    ? 'bg-[#7657C8] text-white' 
                     : 'bg-white text-slate-600 border border-slate-200'
                 }`}
               >
@@ -187,7 +187,7 @@ export const TasbeehScreen: React.FC = () => {
             }}
             className={`py-2.5 px-2 rounded-2xl border text-[11px] font-bold flex items-center justify-center gap-1 shadow-2xs active:scale-95 transition-all ${
               settings.hapticFeedback 
-                ? 'bg-emerald-50 border-emerald-300 text-[#087F5B]' 
+                ? 'bg-purple-50 border-purple-200 text-[#7657C8]' 
                 : 'bg-white border-slate-200 text-slate-400'
             }`}
             title="Toggle tactile haptic vibration"
@@ -199,12 +199,12 @@ export const TasbeehScreen: React.FC = () => {
             onClick={() => setSoundEnabled(!soundEnabled)}
             className={`py-2.5 px-2 rounded-2xl border text-[11px] font-bold flex items-center justify-center gap-1 shadow-2xs active:scale-95 transition-all ${
               soundEnabled
-                ? 'bg-emerald-50 border-emerald-300 text-[#087F5B]'
+                ? 'bg-purple-50 border-purple-200 text-[#7657C8]'
                 : 'bg-white border-slate-200 text-slate-400'
             }`}
             title="Toggle micro-click sound"
           >
-            {soundEnabled ? <Volume2 className="w-3.5 h-3.5 text-emerald-700" /> : <VolumeX className="w-3.5 h-3.5 text-slate-400" />}
+            {soundEnabled ? <Volume2 className="w-3.5 h-3.5 text-[#7657C8]" /> : <VolumeX className="w-3.5 h-3.5 text-slate-400" />}
             <span>{soundEnabled ? 'Click' : 'Mute'}</span>
           </button>
         </div>

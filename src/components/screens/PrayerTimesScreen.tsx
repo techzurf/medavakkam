@@ -214,18 +214,25 @@ export const PrayerTimesScreen: React.FC = () => {
               <div 
                 key={p.id}
                 className={`py-3 px-2 flex items-center justify-between transition-colors rounded-xl ${
-                  p.isNext ? 'bg-emerald-50/70 font-semibold' : ''
+                  p.isNext 
+                    ? 'bg-[#E8F7F1]/80 border-l-4 border-[#087F5B] font-semibold' 
+                    : p.isSunrise 
+                    ? 'bg-amber-50/40 border-l-4 border-amber-300' 
+                    : 'hover:bg-slate-50'
                 }`}
               >
                 <div className="w-24">
                   <div className="flex items-center gap-1.5">
                     <span className={`text-sm font-bold ${
-                      p.isNext ? 'text-[#087F5B]' : 'text-slate-900'
+                      p.isNext ? 'text-[#087F5B]' : p.isSunrise ? 'text-amber-800' : 'text-slate-900'
                     }`}>
                       {p.name}
                     </span>
                     {p.isNext && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#087F5B]"></span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#087F5B] animate-pulse"></span>
+                    )}
+                    {p.isSunrise && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
                     )}
                   </div>
                   <span className="text-[11px] font-arabic text-slate-400 block -mt-0.5">
@@ -344,7 +351,7 @@ export const PrayerTimesScreen: React.FC = () => {
                   September 2026 Timetable
                 </h3>
                 <span className="text-xs text-slate-500">
-                  Rabi' al-Awwal 1448 AH · Al-Noor Islamic Center
+                  Rabi' al-Awwal 1448 AH · Madina Masjid Medavakkam
                 </span>
               </div>
               <button

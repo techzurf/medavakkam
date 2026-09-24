@@ -27,57 +27,57 @@ export const QuickActions: React.FC = () => {
     {
       id: 'qibla',
       label: t('qibla'),
-      icon: <Compass className="w-5 h-5 text-[#087F5B]" />,
-      bg: 'bg-emerald-50/80 border-emerald-100',
+      icon: <Compass className="w-5 h-5 text-[#3B6FD8]" />,
+      bg: 'bg-[#EFF6FF] border-[#DBEAFE]',
       onClick: () => setOverlayScreen('qibla')
     },
     {
       id: 'tasbeeh',
       label: t('tasbeeh'),
-      icon: <TasbeehBeadsIcon className="w-5 h-5 text-[#D4A72C]" />,
-      bg: 'bg-amber-50/80 border-amber-100',
+      icon: <TasbeehBeadsIcon className="w-5 h-5 text-[#7657C8]" />,
+      bg: 'bg-[#F5F3FF] border-[#EDE9FE]',
       onClick: () => setOverlayScreen('tasbeeh')
     },
     {
       id: 'events',
       label: t('events'),
-      icon: <Calendar className="w-5 h-5 text-teal-700" />,
-      bg: 'bg-teal-50/80 border-teal-100',
+      icon: <Calendar className="w-5 h-5 text-[#E89B3C]" />,
+      bg: 'bg-[#FFF7ED] border-[#FFEDD5]',
       onClick: () => setActiveTab('events')
     },
     {
       id: 'services',
       label: t('services'),
-      icon: <Grid className="w-5 h-5 text-emerald-800" />,
-      bg: 'bg-emerald-50/80 border-emerald-100',
+      icon: <Grid className="w-5 h-5 text-[#159A9C]" />,
+      bg: 'bg-[#F0FDFA] border-[#CCFBF1]',
       onClick: () => setActiveTab('services')
     },
     {
       id: 'locator',
       label: t('masjidLocator'),
-      icon: <MapPin className="w-5 h-5 text-emerald-700" />,
-      bg: 'bg-slate-50 border-slate-200/80',
+      icon: <MapPin className="w-5 h-5 text-[#4DA3E8]" />,
+      bg: 'bg-[#F0F9FF] border-[#E0F2FE]',
       onClick: () => setOverlayScreen('locator')
     },
     {
       id: 'register',
       label: t('register'),
-      icon: <UserPlus className="w-5 h-5 text-amber-700" />,
-      bg: 'bg-amber-50/80 border-amber-100',
+      icon: <UserPlus className="w-5 h-5 text-[#D4A72C]" />,
+      bg: 'bg-[#FEFCE8] border-[#FEF08A]',
       onClick: () => startRegistration('New Member')
     },
     {
       id: 'donation',
       label: t('donation'),
-      icon: <Heart className="w-5 h-5 text-rose-700" />,
-      bg: 'bg-rose-50/70 border-rose-100',
+      icon: <Heart className="w-5 h-5 text-[#087F5B]" />,
+      bg: 'bg-[#E8F7F1] border-[#C2E8DA]',
       onClick: () => setOverlayScreen('donation')
     },
     {
       id: 'duas',
       label: t('dailyDua'),
-      icon: <BookOpen className="w-5 h-5 text-teal-800" />,
-      bg: 'bg-teal-50/80 border-teal-100',
+      icon: <BookOpen className="w-5 h-5 text-[#7657C8]" />,
+      bg: 'bg-[#FDFBF7] border-amber-200/70',
       onClick: () => setOverlayScreen('duas')
     }
   ];

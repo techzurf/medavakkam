@@ -1,4 +1,4 @@
-# Al-Noor Masjid Community Mobile App
+# Madina Masjid Medavakkam Community Mobile App
 
 A modern, peaceful, and accessible mobile web application for Masjid prayers, events, community services, Qibla compass, Tasbeeh counter, daily Duas, and Islamic life. Built with React 19, TypeScript, Vite, and Tailwind CSS v4.
 
@@ -30,7 +30,7 @@ This project is fully optimized and ready for zero-configuration or one-click de
    ```bash
    git init
    git add .
-   git commit -m "Initial commit - Al-Noor Masjid Community App"
+   git commit -m "Initial commit - Madina Masjid Medavakkam Community App"
    git branch -M main
    git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
    git push -u origin main

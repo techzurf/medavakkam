@@ -19,7 +19,7 @@ export const LostFoundScreen: React.FC = () => {
   return (
     <div className="w-full flex flex-col gap-4 px-4 pt-2 pb-8">
       <div>
-        <span className="text-[11px] font-bold uppercase tracking-wider text-[#087F5B]">
+        <span className="text-[11px] font-bold uppercase tracking-wider text-[#159A9C]">
           Amanah & Custody
         </span>
         <h1 className="text-xl font-bold text-slate-900 tracking-tight">
@@ -43,8 +43,10 @@ export const LostFoundScreen: React.FC = () => {
                   {item.title}
                 </h4>
               </div>
-              <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                item.status === 'Held in Office' ? 'bg-amber-100 text-amber-900' : 'bg-emerald-100 text-emerald-900'
+              <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${
+                item.status === 'Held in Office' 
+                  ? 'bg-amber-50 text-[#B45309] border-amber-200' 
+                  : 'bg-emerald-50 text-[#087F5B] border-emerald-200'
               }`}>
                 {item.status}
               </span>
@@ -56,18 +58,18 @@ export const LostFoundScreen: React.FC = () => {
 
             <div className="space-y-1 text-[11px] text-slate-500 pt-2 border-t border-slate-100">
               <div className="flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-[#087F5B]" />
+                <MapPin className="w-3.5 h-3.5 text-[#159A9C]" />
                 <span>Found at: <strong>{item.location}</strong></span>
               </div>
               <div className="flex items-center gap-1.5">
-                <Calendar className="w-3.5 h-3.5 text-[#087F5B]" />
+                <Calendar className="w-3.5 h-3.5 text-[#3B6FD8]" />
                 <span>Date: {item.date}</span>
               </div>
             </div>
 
             <div className="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between text-xs">
               <span className="text-[11px] text-slate-500">Contact: {item.contactPerson}</span>
-              <a href="tel:+15552345678" className="font-bold text-[#087F5B] hover:underline">
+              <a href="tel:+15552345678" className="font-bold text-[#159A9C] hover:underline">
                 Claim Item
               </a>
             </div>
@@ -76,13 +78,13 @@ export const LostFoundScreen: React.FC = () => {
       </div>
 
       {/* Report lost item banner */}
-      <div className="p-4 bg-emerald-50 rounded-3xl border border-emerald-100 flex items-center justify-between">
+      <div className="p-4 bg-[#E8F7F1] rounded-3xl border border-emerald-100 flex items-center justify-between">
         <div>
-          <h4 className="text-xs font-bold text-emerald-950">Lost something at Al-Noor?</h4>
-          <p className="text-[11px] text-emerald-900/80">Notify our facilities team directly.</p>
+          <h4 className="text-xs font-bold text-slate-900">Lost something at Madina Masjid?</h4>
+          <p className="text-[11px] text-slate-600">Notify our facilities team directly.</p>
         </div>
         <button
-          onClick={() => alert('Please contact the Masjid office desk at +1 (555) 234-5678 or visit after any Salah.')}
+          onClick={() => alert('Please contact the Masjid office desk at +91 44 2551 2410 or visit after any Salah.')}
           className="px-3 py-1.5 bg-[#087F5B] text-white rounded-xl text-xs font-bold shadow-2xs hover:bg-[#07543F]"
         >
           Report Lost Item

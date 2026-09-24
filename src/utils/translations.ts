@@ -3,7 +3,7 @@ import { AppLanguage } from '../types';
 export const TRANSLATIONS: Record<AppLanguage, Record<string, string>> = {
   en: {
     assalamuAlaikum: 'Assalamu Alaikum',
-    masjidName: 'Al-Noor Islamic Center',
+    masjidName: 'Madina Masjid Medavakkam',
     tagline: 'Sanctuary for prayer, knowledge & community',
     prayerTimes: 'Prayer Times',
     viewPrayerTimes: 'View Prayer Times',
@@ -44,7 +44,7 @@ export const TRANSLATIONS: Record<AppLanguage, Record<string, string>> = {
   },
   ta: {
     assalamuAlaikum: 'அஸ்ஸலாமு அலைக்கும்',
-    masjidName: 'அந்-நூர் இஸ்லாமிய மையம்',
+    masjidName: 'மதீனா மஸ்ஜித் மேடவாக்கம்',
     tagline: 'தொழுகை, கல்வி மற்றும் சமூக நலனுக்கான புனித இல்லம்',
     prayerTimes: 'தொழுகை நேரங்கள்',
     viewPrayerTimes: 'தொழுகை அட்டவணை பார்க்க',
@@ -85,7 +85,7 @@ export const TRANSLATIONS: Record<AppLanguage, Record<string, string>> = {
   },
   ar: {
     assalamuAlaikum: 'السلام عليكم ورحمة الله',
-    masjidName: 'مركز ومسجد النور الإسلامي',
+    masjidName: 'مسجد المدينة ميدافاكام',
     tagline: 'واحة للصلاة والعلم والخدمة المجتمعية',
     prayerTimes: 'مواقيت الصلاة',
     viewPrayerTimes: 'عرض جدول الصلاة',

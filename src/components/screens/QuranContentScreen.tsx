@@ -47,13 +47,13 @@ export const QuranContentScreen: React.FC = () => {
   return (
     <div className="w-full flex flex-col gap-4 px-4 pt-3 pb-8">
       {/* Daily Ayah Hero Card */}
-      <div className="w-full bg-gradient-to-br from-[#087F5B] to-[#043d2d] rounded-3xl p-5 text-white shadow-sm relative overflow-hidden">
+      <div className="w-full bg-gradient-to-br from-[#087F5B] via-[#07543F] to-[#162722] rounded-3xl p-5 text-white shadow-sm relative overflow-hidden">
         <div className="absolute top-2 right-2 opacity-15">
           <RubElHizbIcon className="w-24 h-24 text-white" />
         </div>
 
         <div className="flex items-center justify-between mb-2">
-          <span className="text-[10px] uppercase font-bold tracking-widest text-amber-300">
+          <span className="text-[10px] uppercase font-bold tracking-widest text-[#D4A72C]">
             Ayah of the Day
           </span>
           <button 
@@ -65,7 +65,7 @@ export const QuranContentScreen: React.FC = () => {
           </button>
         </div>
 
-        <p className="text-right text-lg font-arabic font-bold text-amber-100 leading-loose mb-3 dir-rtl" dir="rtl">
+        <p className="text-right text-lg font-arabic font-bold text-[#FAF7EE] leading-loose mb-3 dir-rtl" dir="rtl">
           {TODAY_REMINDER.ayah.arabic}
         </p>
 
@@ -74,13 +74,13 @@ export const QuranContentScreen: React.FC = () => {
         </p>
 
         {settings.language === 'ta' && (
-          <p className="text-[11px] text-emerald-100/90 leading-relaxed bg-black/20 p-2 rounded-xl mb-2">
+          <p className="text-[11px] text-[#FAF7EE]/90 leading-relaxed bg-black/20 p-2.5 rounded-xl mb-2">
             {TODAY_REMINDER.ayah.tamil}
           </p>
         )}
 
-        <div className="flex items-center justify-between pt-2 border-t border-white/15 text-[11px] text-emerald-200">
-          <span className="font-semibold">{TODAY_REMINDER.ayah.surah}</span>
+        <div className="flex items-center justify-between pt-2 border-t border-white/15 text-[11px] text-slate-300">
+          <span className="font-semibold text-[#D4A72C]">{TODAY_REMINDER.ayah.surah}</span>
           <span>Revelation: Madani</span>
         </div>
       </div>
@@ -129,35 +129,49 @@ export const QuranContentScreen: React.FC = () => {
           </div>
 
           <div className="flex flex-col gap-2">
-            {filteredSurahs.map(surah => (
-              <div
-                key={surah.number}
-                className="w-full bg-white rounded-2xl p-3.5 border border-slate-200/80 shadow-2xs flex items-center justify-between hover:border-emerald-200 transition-all cursor-pointer"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-[#087F5B] flex items-center justify-center text-xs font-extrabold font-mono">
-                    {surah.number}
+            {filteredSurahs.map((surah, idx) => {
+              const accentColors = ['#087F5B', '#3B6FD8', '#7657C8', '#159A9C', '#D4A72C', '#4DA3E8'];
+              const color = accentColors[idx % accentColors.length];
+
+              return (
+                <div
+                  key={surah.number}
+                  className="w-full bg-white rounded-2xl p-3.5 border border-slate-200/80 shadow-2xs flex items-center justify-between hover:border-slate-300 transition-all cursor-pointer"
+                >
+                  <div className="flex items-center gap-3">
+                    <div 
+                      className="w-8 h-8 rounded-xl flex items-center justify-center text-xs font-extrabold font-mono"
+                      style={{
+                        backgroundColor: `${color}15`,
+                        color: color
+                      }}
+                    >
+                      {surah.number}
+                    </div>
+                    <div>
+                      <h4 className="text-xs font-bold text-slate-900 leading-tight">
+                        {surah.englishName}
+                      </h4>
+                      <span className="text-[11px] text-slate-500">
+                        {surah.meaning} · {surah.ayahCount} Verses
+                      </span>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="text-xs font-bold text-slate-900 leading-tight">
-                      {surah.englishName}
-                    </h4>
-                    <span className="text-[11px] text-slate-500">
-                      {surah.meaning} · {surah.ayahCount} Verses
+
+                  <div className="text-right">
+                    <span 
+                      className="text-base font-arabic font-bold block"
+                      style={{ color: color }}
+                    >
+                      {surah.name}
+                    </span>
+                    <span className="text-[10px] text-slate-400 font-medium">
+                      {surah.revelation}
                     </span>
                   </div>
                 </div>
-
-                <div className="text-right">
-                  <span className="text-base font-arabic font-bold text-[#087F5B] block">
-                    {surah.name}
-                  </span>
-                  <span className="text-[10px] text-slate-400 font-medium">
-                    {surah.revelation}
-                  </span>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       )}
@@ -165,7 +179,7 @@ export const QuranContentScreen: React.FC = () => {
       {activeTab === 'hadith' && (
         <div className="flex flex-col gap-3">
           <div className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-2xs">
-            <span className="text-[10px] uppercase font-bold text-[#087F5B] tracking-wider block mb-1">
+            <span className="text-[10px] uppercase font-bold text-[#D4A72C] tracking-wider block mb-1">
               Riyad as-Salihin
             </span>
             <p className="text-xs text-slate-500 mb-2">
@@ -175,13 +189,13 @@ export const QuranContentScreen: React.FC = () => {
               "{TODAY_REMINDER.hadith.text}"
             </p>
             <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-              <span className="font-semibold text-emerald-800">{TODAY_REMINDER.hadith.source}</span>
-              <span>Authentic (Sahih)</span>
+              <span className="font-semibold text-[#087F5B]">{TODAY_REMINDER.hadith.source}</span>
+              <span className="text-xs text-slate-400">Authentic (Sahih)</span>
             </div>
           </div>
 
           <div className="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-2xs">
-            <span className="text-[10px] uppercase font-bold text-[#087F5B] tracking-wider block mb-1">
+            <span className="text-[10px] uppercase font-bold text-[#7657C8] tracking-wider block mb-1">
               Sunan an-Nasa'i
             </span>
             <p className="text-xs text-slate-500 mb-2">
@@ -191,8 +205,8 @@ export const QuranContentScreen: React.FC = () => {
               "Whoever attends the funeral until the prayer is offered will have a Qirat of reward, and whoever remains until the burial is completed will have two Qirats — like two immense mountains."
             </p>
             <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
-              <span className="font-semibold text-emerald-800">Sahih al-Bukhari 1325</span>
-              <span>Authentic (Sahih)</span>
+              <span className="font-semibold text-[#7657C8]">Sahih al-Bukhari 1325</span>
+              <span className="text-xs text-slate-400">Authentic (Sahih)</span>
             </div>
           </div>
         </div>
@@ -209,7 +223,7 @@ export const QuranContentScreen: React.FC = () => {
               <div
                 key={bayan.id}
                 className={`w-full bg-white rounded-2xl p-4 border transition-all ${
-                  isPlaying ? 'border-[#087F5B] bg-emerald-50/40 shadow-xs' : 'border-slate-200/80'
+                  isPlaying ? 'border-[#3B6FD8] bg-blue-50/40 shadow-xs' : 'border-slate-200/80'
                 }`}
               >
                 <div className="flex items-center justify-between mb-2">
@@ -226,8 +240,8 @@ export const QuranContentScreen: React.FC = () => {
                     onClick={() => togglePlayBayan(bayan.id)}
                     className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
                       isPlaying 
-                        ? 'bg-[#087F5B] text-white shadow-xs' 
-                        : 'bg-slate-100 hover:bg-emerald-100 text-slate-700'
+                        ? 'bg-[#3B6FD8] text-white shadow-xs' 
+                        : 'bg-slate-100 hover:bg-blue-50 text-slate-700'
                     }`}
                   >
                     {isPlaying ? <Pause className="w-4 h-4 fill-current" /> : <Play className="w-4 h-4 fill-current ml-0.5" />}
@@ -235,11 +249,11 @@ export const QuranContentScreen: React.FC = () => {
                 </div>
 
                 {isPlaying && (
-                  <div className="mt-3 pt-2.5 border-t border-emerald-200/60 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
-                    <span className="text-[11px] text-emerald-900 font-bold">Now Playing Audio</span>
+                  <div className="mt-3 pt-2.5 border-t border-blue-200/60 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#3B6FD8] animate-pulse"></span>
+                    <span className="text-[11px] text-slate-900 font-bold">Now Playing Audio</span>
                     <div className="flex-1 h-1.5 bg-slate-200 rounded-full overflow-hidden ml-2">
-                      <div className="h-full bg-[#087F5B] w-1/3 animate-pulse"></div>
+                      <div className="h-full bg-[#3B6FD8] w-1/3 animate-pulse"></div>
                     </div>
                   </div>
                 )}

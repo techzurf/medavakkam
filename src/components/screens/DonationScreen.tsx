@@ -48,22 +48,22 @@ export const DonationScreen: React.FC = () => {
           <RubElHizbIcon className="w-28 h-28 text-white" />
         </div>
 
-        <div className="flex items-center gap-1.5 mb-1 text-amber-300 text-xs font-bold uppercase tracking-wider">
-          <Heart className="w-3.5 h-3.5 fill-current" />
+        <div className="flex items-center gap-1.5 mb-1 text-[#D4A72C] text-xs font-bold uppercase tracking-wider">
+          <Heart className="w-3.5 h-3.5 fill-[#D4A72C]" />
           <span>Sadaqah & Zakat</span>
         </div>
 
         <h1 className="text-xl font-extrabold tracking-tight text-white mb-1">
-          Support Al-Noor Masjid
+          Support Madina Masjid Medavakkam
         </h1>
 
-        <p className="text-xs text-emerald-100/90 leading-relaxed max-w-sm">
+        <p className="text-xs text-white/90 leading-relaxed max-w-sm">
           "The believer's shade on the Day of Resurrection will be their charity." (Tirmidhi)
         </p>
 
-        <div className="mt-3 pt-3 border-t border-white/15 flex items-center justify-between text-[11px] text-emerald-200">
-          <span>501(c)(3) Tax-Exempt Status</span>
-          <span className="text-amber-300 font-semibold">100% Tax Deductible</span>
+        <div className="mt-3 pt-3 border-t border-white/15 flex items-center justify-between text-[11px] text-white/90">
+          <span>Registered Trust & Non-Profit Status</span>
+          <span className="text-[#D4A72C] font-bold">100% Tax Deductible</span>
         </div>
       </div>
 
@@ -112,7 +112,7 @@ export const DonationScreen: React.FC = () => {
                 onClick={() => setSelectedFund(fund.id)}
                 className={`flex items-start gap-2.5 p-3 rounded-2xl border transition-all cursor-pointer ${
                   selectedFund === fund.id 
-                    ? 'bg-emerald-50/70 border-[#087F5B]' 
+                    ? 'bg-[#E8F7F1]/80 border-[#087F5B]' 
                     : 'bg-slate-50/60 border-slate-200/80 hover:bg-slate-50'
                 }`}
               >
@@ -195,12 +195,12 @@ export const DonationScreen: React.FC = () => {
           <span>Add <strong>${processingFee}</strong> to cover credit card processing fee</span>
         </label>
 
-        {/* Donation Total & Submit Button */}
+        {/* Donation Total & Submit Button with Gold icon */}
         <button
           type="submit"
           className="mt-2 w-full h-13 rounded-2xl bg-gradient-to-r from-[#087F5B] to-[#07543F] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/15 active:scale-[0.98] transition-all"
         >
-          <CreditCard className="w-4 h-4" />
+          <CreditCard className="w-4 h-4 text-[#D4A72C]" />
           <span>Complete ${totalAmount} {frequency} Donation</span>
         </button>
       </form>

@@ -33,15 +33,25 @@ export const EventsScreen: React.FC = () => {
 
   const categories = [
     'All',
-    'Religious',
     'Lectures',
     'Quran',
     'Youth',
     'Sisters',
     'Children',
-    'Community',
-    'Fundraising'
+    'Community'
   ];
+
+  const categoryThemeMap: Record<string, { color: string; border: string; text: string; lightBg: string }> = {
+    'Quran': { color: '#087F5B', border: 'border-emerald-200', text: 'text-[#087F5B]', lightBg: 'bg-[#E8F7F1]' },
+    'Youth': { color: '#3B6FD8', border: 'border-blue-200', text: 'text-[#3B6FD8]', lightBg: 'bg-blue-50' },
+    'Sisters': { color: '#7657C8', border: 'border-purple-200', text: 'text-[#7657C8]', lightBg: 'bg-purple-50' },
+    'Children': { color: '#E89B3C', border: 'border-orange-200', text: 'text-[#E89B3C]', lightBg: 'bg-orange-50' },
+    'Community': { color: '#159A9C', border: 'border-teal-200', text: 'text-[#159A9C]', lightBg: 'bg-teal-50' },
+    'Lectures': { color: '#D4A72C', border: 'border-amber-200', text: 'text-[#B45309]', lightBg: 'bg-amber-50' },
+    'All': { color: '#087F5B', border: 'border-emerald-200', text: 'text-[#087F5B]', lightBg: 'bg-[#E8F7F1]' }
+  };
+
+  const getTheme = (cat: string) => categoryThemeMap[cat] || categoryThemeMap['All'];
 
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
@@ -64,7 +74,7 @@ export const EventsScreen: React.FC = () => {
 
   const handleShare = () => {
     if (navigator.clipboard) {
-      navigator.clipboard.writeText(`Join us at Al-Noor Masjid: ${detailModalEvent?.title} on ${detailModalEvent?.date}`);
+      navigator.clipboard.writeText(`Join us at Madina Masjid Medavakkam: ${detailModalEvent?.title} on ${detailModalEvent?.date}`);
       setCopiedLink(true);
       setTimeout(() => setCopiedLink(false), 2000);
     }
@@ -114,15 +124,19 @@ export const EventsScreen: React.FC = () => {
       <div className="flex gap-1.5 overflow-x-auto no-scrollbar pb-1 -mx-4 px-4">
         {categories.map(cat => {
           const isActive = activeCategory === cat;
+          const theme = getTheme(cat);
           return (
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
               className={`min-h-[38px] px-3.5 py-1.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all ${
                 isActive 
-                  ? 'bg-[#087F5B] text-white shadow-2xs' 
+                  ? 'text-white shadow-2xs' 
                   : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200/60'
               }`}
+              style={{
+                backgroundColor: isActive ? theme.color : undefined
+              }}
             >
               {cat}
             </button>
@@ -139,71 +153,76 @@ export const EventsScreen: React.FC = () => {
             <p className="text-xs text-slate-400 mt-1">Try another category or clear your search.</p>
           </div>
         ) : (
-          filteredEvents.map(event => (
-            <div
-              key={event.id}
-              onClick={() => handleOpenDetail(event)}
-              className="w-full bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-2xs hover:shadow-md transition-all cursor-pointer flex flex-col active:scale-[0.99]"
-            >
-              {/* Card Banner */}
-              <div className={`h-28 bg-gradient-to-r ${event.imageFallbackGradient} p-4 flex flex-col justify-between text-white relative`}>
-                <div className="flex items-center justify-between z-10">
-                  <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 bg-black/40 backdrop-blur-md rounded-md">
-                    {event.category}
-                  </span>
-                  <span className="text-xs font-bold text-amber-300 px-2 py-0.5 bg-black/25 rounded-md">
-                    {event.price}
-                  </span>
+          filteredEvents.map(event => {
+            const eventTheme = getTheme(event.category);
+            return (
+              <div
+                key={event.id}
+                onClick={() => handleOpenDetail(event)}
+                className="w-full bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-2xs hover:shadow-md transition-all cursor-pointer flex flex-col active:scale-[0.99]"
+              >
+                {/* Card Banner */}
+                <div className={`h-28 bg-gradient-to-r ${event.imageFallbackGradient} p-4 flex flex-col justify-between text-white relative`}>
+                  <div className="flex items-center justify-between z-10">
+                    <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 bg-black/40 backdrop-blur-md rounded-md">
+                      {event.category}
+                    </span>
+                    <span className="text-xs font-bold text-amber-300 px-2 py-0.5 bg-black/25 rounded-md">
+                      {event.price}
+                    </span>
+                  </div>
+
+                  <div className="absolute -bottom-6 -right-6 opacity-15">
+                    <RubElHizbIcon className="w-28 h-28 text-white" />
+                  </div>
+
+                  <div className="z-10 flex items-center gap-2 text-xs font-semibold text-white/90">
+                    <Calendar className="w-3.5 h-3.5 text-amber-300" />
+                    <span>{event.date}</span>
+                  </div>
                 </div>
 
-                <div className="absolute -bottom-6 -right-6 opacity-15">
-                  <RubElHizbIcon className="w-28 h-28 text-white" />
-                </div>
+                {/* Card Content */}
+                <div className="p-4 flex flex-col justify-between gap-3">
+                  <div>
+                    <h3 className="text-sm font-bold text-slate-900 leading-snug mb-1.5">
+                      {settings.language === 'ta' && event.tamilTitle ? event.tamilTitle : event.title}
+                    </h3>
 
-                <div className="z-10 flex items-center gap-2 text-xs font-semibold text-emerald-100">
-                  <Calendar className="w-3.5 h-3.5 text-amber-300" />
-                  <span>{event.date}</span>
+                    <div className="flex items-center gap-1.5 text-xs text-slate-700 mb-1">
+                      <User className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                      <span className="font-medium truncate">{event.speaker}</span>
+                    </div>
+
+                    <div className="flex items-center gap-1.5 text-xs text-slate-500 mb-1">
+                      <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                      <span>{event.time}</span>
+                    </div>
+
+                    <div className="flex items-center gap-1.5 text-xs text-slate-500">
+                      <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                      <span className="truncate">{event.location}</span>
+                    </div>
+                  </div>
+
+                  {/* Card Footer */}
+                  <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between">
+                    <div className="flex items-center gap-1.5 text-xs text-slate-500">
+                      <Users className="w-3.5 h-3.5 text-slate-400" />
+                      <span>{event.registeredCount} / {event.capacity} registered</span>
+                    </div>
+
+                    <button 
+                      className={`px-3 py-1.5 rounded-xl ${eventTheme.lightBg} ${eventTheme.text} text-xs font-bold flex items-center gap-1 transition-colors`}
+                    >
+                      <span>View & Register</span>
+                      <ChevronRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
                 </div>
               </div>
-
-              {/* Card Content */}
-              <div className="p-4 flex flex-col justify-between gap-3">
-                <div>
-                  <h3 className="text-sm font-bold text-slate-900 leading-snug mb-1.5">
-                    {settings.language === 'ta' && event.tamilTitle ? event.tamilTitle : event.title}
-                  </h3>
-
-                  <div className="flex items-center gap-1.5 text-xs text-slate-700 mb-1">
-                    <User className="w-3.5 h-3.5 text-[#087F5B] shrink-0" />
-                    <span className="font-medium truncate">{event.speaker}</span>
-                  </div>
-
-                  <div className="flex items-center gap-1.5 text-xs text-slate-500 mb-1">
-                    <Clock className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                    <span>{event.time}</span>
-                  </div>
-
-                  <div className="flex items-center gap-1.5 text-xs text-slate-500">
-                    <MapPin className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                    <span className="truncate">{event.location}</span>
-                  </div>
-                </div>
-
-                {/* Card Footer */}
-                <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between">
-                  <div className="flex items-center gap-1.5 text-xs text-slate-500">
-                    <Users className="w-3.5 h-3.5 text-slate-400" />
-                    <span>{event.registeredCount} / {event.capacity} registered</span>
-                  </div>
-
-                  <button className="px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-[#087F5B] text-xs font-bold flex items-center gap-1 transition-colors">
-                    <span>View & Register</span>
-                    <ChevronRight className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          ))
+            );
+          })
         )}
       </div>
 
@@ -236,7 +255,7 @@ export const EventsScreen: React.FC = () => {
                 Capacity: {detailModalEvent.capacity} Attendees
               </div>
               <div className="text-xs font-bold text-amber-300">
-                Al-Noor Islamic Center
+                Madina Masjid Medavakkam
               </div>
             </div>
 

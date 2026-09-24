@@ -81,7 +81,7 @@ export const RegistrationScreen: React.FC = () => {
           </h2>
 
           <p className="text-xs text-slate-600 max-w-xs mb-6 leading-relaxed">
-            Your application for <strong>{activeRegistrationType}</strong> has been successfully submitted and recorded with Al-Noor Masjid administration.
+            Your application for <strong>{activeRegistrationType}</strong> has been successfully submitted and recorded with Madina Masjid Medavakkam administration.
           </p>
 
           {/* Reference Card with QR Mockup */}
@@ -131,7 +131,7 @@ export const RegistrationScreen: React.FC = () => {
   return (
     <div className="w-full flex flex-col gap-4 px-4 pt-3 pb-8">
       <div>
-        <span className="text-[11px] font-bold uppercase tracking-wider text-[#087F5B]">
+        <span className="text-[11px] font-bold uppercase tracking-wider text-[#D4A72C]">
           Community Gateway
         </span>
         <h1 className="text-xl font-bold text-slate-900 tracking-tight">
@@ -153,7 +153,7 @@ export const RegistrationScreen: React.FC = () => {
               onClick={() => setActiveRegistrationType(type)}
               className={`py-2 text-[11px] font-bold rounded-xl transition-all ${
                 isActive 
-                  ? 'bg-white text-slate-900 shadow-xs' 
+                  ? 'bg-white text-slate-900 shadow-xs border border-amber-200/60' 
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
