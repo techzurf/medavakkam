@@ -23,7 +23,7 @@ export const MobileShell: React.FC<MobileShellProps> = ({ children }) => {
     } text-[#17221D]`}>
       {/* Clean Standalone Mobile App Canvas */}
       <div 
-        className={`w-full max-w-[430px] min-h-screen flex flex-col relative transition-all duration-300 ${
+        className={`w-full max-w-[430px] min-h-screen flex flex-col relative transition-colors duration-300 ${
           settings.ramadanMode 
             ? 'bg-[#FDFBF7] sm:border-x sm:border-amber-400/40 ramadan-festive-glow' 
             : 'bg-[#F7F9F7] sm:border-x sm:border-slate-200/80 shadow-sm'
@@ -31,21 +31,23 @@ export const MobileShell: React.FC<MobileShellProps> = ({ children }) => {
       >
         {/* In-App Approaching Prayer Alert Toast / Banner (Triggered prior to Salah) */}
         {activePrayerAlert && (
-          <ApproachingPrayerBanner
-            alert={activePrayerAlert}
-            isPlayingAudio={isPlayingNotificationSound}
-            onMuteAudio={mutePrayerSound}
-            onDismiss={dismissPrayerAlert}
-            onOpenTimetable={() => {
-              dismissPrayerAlert();
-              setOverlayScreen(null);
-              setActiveTab('prayers');
-            }}
-          />
+          <div className="w-full pt-[calc(54px+env(safe-area-inset-top,0px))] z-50">
+            <ApproachingPrayerBanner
+              alert={activePrayerAlert}
+              isPlayingAudio={isPlayingNotificationSound}
+              onMuteAudio={mutePrayerSound}
+              onDismiss={dismissPrayerAlert}
+              onOpenTimetable={() => {
+                dismissPrayerAlert();
+                setOverlayScreen(null);
+                setActiveTab('prayers');
+              }}
+            />
+          </div>
         )}
 
         {/* Scrollable Mobile Viewport Area */}
-        <div className="flex-1 w-full overflow-y-auto overflow-x-hidden no-scrollbar flex flex-col relative pb-26">
+        <div className="flex-1 w-full overflow-y-auto overflow-x-hidden no-scrollbar flex flex-col relative">
           {children}
         </div>
       </div>

@@ -93,7 +93,7 @@ const MainAppContent: React.FC = () => {
   return (
     <MobileShell>
       <MobileTopBar />
-      <main className="w-full flex-1 flex flex-col">
+      <main className="w-full flex-1 flex flex-col pt-[calc(52px+env(safe-area-inset-top,0px))] sm:pt-[calc(56px+env(safe-area-inset-top,0px))] pb-[calc(80px+env(safe-area-inset-bottom,0px))]">
         {renderCurrentScreen()}
       </main>
       <MobileBottomNav />

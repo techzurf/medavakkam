@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useApp } from '../../context/AppContext';
-import { ActiveTab, OverlayScreen } from '../../types';
 import { 
   Home, 
   Compass, 
@@ -121,8 +120,8 @@ export const MobileBottomNav: React.FC = () => {
     // Smooth spring-like fluid GSAP transition
     const tween = gsap.to(animCoordRef.current, {
       x: nextTargetX,
-      duration: 0.44,
-      ease: 'back.out(1.25)', // Elegant fluid spring
+      duration: 0.42,
+      ease: 'back.out(1.2)', // Controlled fluid spring
       onUpdate: () => {
         setCurrentX(animCoordRef.current.x);
       },
@@ -133,25 +132,25 @@ export const MobileBottomNav: React.FC = () => {
     };
   }, [activeIndex, navWidth]);
 
-  // Construct the mathematical continuous curved notch SVG path
-  const topY = 16;
-  const bottomY = 44;
-  const halfW = 35;
-  const H = 120; // Extends into safe-area-inset-bottom
+  // Precise mathematical curved notch SVG path (starts at y=0, dips down 26px around bubble)
+  const topY = 0;
+  const bottomY = 26;
+  const halfW = 32;
+  const H = 105; // Sufficient vertical depth for bar + iPhone safe-area-inset-bottom
 
   const x0 = currentX - halfW;
-  const x1 = currentX - 18;
+  const x1 = currentX - 16;
   const x2 = currentX;
-  const x3 = currentX + 18;
+  const x3 = currentX + 16;
   const x4 = currentX + halfW;
 
   const curvedRimPath = `
     M -10 ${topY}
     L ${x0} ${topY}
-    C ${currentX - 26} ${topY}, ${currentX - 22} ${topY + 14}, ${x1} ${topY + 20}
-    C ${currentX - 12} ${bottomY - 3}, ${currentX - 7} ${bottomY}, ${x2} ${bottomY}
-    C ${currentX + 7} ${bottomY}, ${currentX + 12} ${bottomY - 3}, ${x3} ${topY + 20}
-    C ${currentX + 22} ${topY + 14}, ${currentX + 26} ${topY}, ${x4} ${topY}
+    C ${currentX - 22} ${topY}, ${currentX - 20} ${topY + 12}, ${x1} ${topY + 18}
+    C ${currentX - 10} ${bottomY - 2}, ${currentX - 6} ${bottomY}, ${x2} ${bottomY}
+    C ${currentX + 6} ${bottomY}, ${currentX + 10} ${bottomY - 2}, ${x3} ${topY + 18}
+    C ${currentX + 20} ${topY + 12}, ${currentX + 22} ${topY}, ${x4} ${topY}
     L ${navWidth + 10} ${topY}
   `.trim();
 
@@ -190,7 +189,7 @@ export const MobileBottomNav: React.FC = () => {
     <nav
       ref={containerRef}
       aria-label="Masjid Bottom Navigation"
-      className="fixed bottom-0 left-0 right-0 z-40 max-w-[430px] mx-auto select-none pointer-events-auto"
+      className="fixed bottom-0 left-0 right-0 z-40 max-w-[430px] mx-auto select-none pointer-events-auto overflow-visible"
       style={{
         paddingBottom: 'env(safe-area-inset-bottom, 0px)',
       }}
@@ -220,7 +219,7 @@ export const MobileBottomNav: React.FC = () => {
 
           {/* Ambient Notch Glow Filter */}
           <filter id="notchShadowFilter" x="-10%" y="-30%" width="120%" height="160%">
-            <feDropShadow dx="0" dy="-4" stdDeviation="6" floodColor={isRamadan ? 'rgba(0,0,0,0.6)' : 'rgba(2, 28, 20, 0.5)'} />
+            <feDropShadow dx="0" dy="-3" stdDeviation="5" floodColor={isRamadan ? 'rgba(0,0,0,0.55)' : 'rgba(2, 28, 20, 0.45)'} />
           </filter>
         </defs>
 
@@ -236,32 +235,32 @@ export const MobileBottomNav: React.FC = () => {
           d={curvedRimPath}
           fill="none"
           stroke="url(#navBarRimGrad)"
-          strokeWidth="1.4"
+          strokeWidth="1.3"
           strokeLinecap="round"
         />
       </svg>
 
-      {/* 2. Elevated Floating Active Circular Bubble (Rises 12-15px above bar, moves with currentX) */}
+      {/* 2. Elevated Floating Active Circular Bubble (Controlled rise: exactly 8px above the navigation bar) */}
       <div
         className="absolute top-0 left-0 pointer-events-none z-20 flex items-center justify-center transition-transform"
         style={{
-          width: '50px',
-          height: '50px',
-          transform: `translate3d(${currentX - 25}px, -11px, 0)`,
+          width: '44px',
+          height: '44px',
+          transform: `translate3d(${currentX - 22}px, -8px, 0)`,
           willChange: 'transform',
         }}
       >
         <div
-          className={`w-full h-full rounded-full flex items-center justify-center relative shadow-lg ${
+          className={`w-full h-full rounded-full flex items-center justify-center relative shadow-md ${
             isRamadan
-              ? 'bg-gradient-to-br from-[#F59E0B] via-[#D97706] to-[#92400E] border-2 border-amber-300 shadow-[0_6px_18px_rgba(217,119,6,0.6),0_0_12px_rgba(245,158,11,0.4)]'
-              : 'bg-gradient-to-br from-[#10B981] via-[#087F5B] to-[#06543F] border-2 border-[#FDE68A]/90 shadow-[0_6px_18px_rgba(8,127,91,0.55),0_0_12px_rgba(212,167,44,0.35)]'
+              ? 'bg-gradient-to-br from-[#F59E0B] via-[#D97706] to-[#92400E] border-2 border-amber-300 shadow-[0_4px_14px_rgba(217,119,6,0.5)]'
+              : 'bg-gradient-to-br from-[#10B981] via-[#087F5B] to-[#06543F] border-2 border-[#FDE68A]/90 shadow-[0_4px_14px_rgba(8,127,91,0.5)]'
           }`}
         >
           {/* Subtle interior sheen ring */}
-          <div className="absolute inset-0 rounded-full border border-white/25 pointer-events-none" />
+          <div className="absolute inset-0 rounded-full border border-white/20 pointer-events-none" />
 
-          {/* Active White Icon with Subtle Scale Pop */}
+          {/* Active White Icon */}
           <div 
             key={activeIndex}
             className="text-white transform transition-transform duration-200 animate-in zoom-in-75 flex items-center justify-center"
@@ -272,7 +271,7 @@ export const MobileBottomNav: React.FC = () => {
       </div>
 
       {/* 3. Five Tab Interactive Columns */}
-      <div className="relative z-10 w-full h-[68px] sm:h-[72px] grid grid-cols-5 items-stretch">
+      <div className="relative z-10 w-full h-[62px] sm:h-[66px] grid grid-cols-5 items-stretch">
         {navItems.map((item, index) => {
           const isActive = index === activeIndex;
 
@@ -280,26 +279,26 @@ export const MobileBottomNav: React.FC = () => {
             <button
               key={item.id}
               onClick={() => handleTabClick(index)}
-              className="relative flex flex-col items-center justify-end pb-2 pt-2.5 h-full cursor-pointer active:scale-95 transition-transform outline-none select-none"
+              className="relative flex flex-col items-center justify-end pb-1.5 pt-2 h-full cursor-pointer active:scale-95 transition-transform outline-none select-none"
               aria-label={item.label}
               aria-current={isActive ? 'page' : undefined}
             >
-              {/* Inactive Icon: Centered in normal bar height, fades out when tab is active */}
+              {/* Inactive Icon: Centered in normal bar height, cleanly fades when active */}
               <div
-                className={`transition-all duration-300 flex items-center justify-center ${
+                className={`transition-all duration-250 flex items-center justify-center ${
                   isActive
-                    ? 'opacity-0 scale-75 -translate-y-2 pointer-events-none'
+                    ? 'opacity-0 scale-75 -translate-y-1 pointer-events-none'
                     : isRamadan
                     ? 'opacity-70 text-slate-400 hover:text-amber-200 translate-y-0 scale-100'
                     : 'opacity-75 text-emerald-100/70 hover:text-white translate-y-0 scale-100'
                 }`}
-                style={{ height: '24px' }}
+                style={{ height: '22px' }}
               >
                 {item.icon(false)}
               </div>
 
               {/* Label at the bottom */}
-              <div className="flex flex-col items-center justify-center mt-1">
+              <div className="flex flex-col items-center justify-center mt-0.5">
                 <span
                   className={`text-[10px] tracking-tight transition-all duration-200 ${
                     isActive
