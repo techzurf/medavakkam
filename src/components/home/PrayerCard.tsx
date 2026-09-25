@@ -5,7 +5,11 @@ import { INITIAL_PRAYERS, JUMMAH_INFO, RAMADAN_TIMINGS } from '../../data/mockDa
 import { RubElHizbIcon } from '../common/IslamicIcons';
 import { useTranslation } from '../../utils/translations';
 
-export const PrayerCard: React.FC = () => {
+interface PrayerCardProps {
+  className?: string;
+}
+
+export const PrayerCard: React.FC<PrayerCardProps> = ({ className }) => {
   const { setActiveTab, setOverlayScreen, settings } = useApp();
   const t = useTranslation(settings.language);
 
@@ -28,7 +32,7 @@ export const PrayerCard: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full bg-white rounded-3xl p-4 shadow-sm border border-emerald-950/5 relative overflow-hidden">
+    <div className={`w-full bg-white p-4 relative overflow-hidden ${className ?? 'rounded-3xl shadow-sm border border-emerald-950/5'}`}>
       {/* Background Islamic Subtle Motifs */}
       <div className="absolute -top-12 -right-12 w-32 h-32 bg-emerald-50 rounded-full blur-2xl pointer-events-none"></div>
 

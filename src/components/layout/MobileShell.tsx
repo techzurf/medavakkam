@@ -45,7 +45,7 @@ export const MobileShell: React.FC<MobileShellProps> = ({ children }) => {
         )}
 
         {/* Scrollable Mobile Viewport Area */}
-        <div className="flex-1 w-full overflow-y-auto overflow-x-hidden no-scrollbar flex flex-col relative pb-20">
+        <div className="flex-1 w-full overflow-y-auto overflow-x-hidden no-scrollbar flex flex-col relative pb-26">
           {children}
         </div>
       </div>

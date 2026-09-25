@@ -1,6 +1,6 @@
 {
-  "name": "Madina Masjid Medavakkam Community App",
-  "description": "Modern, peaceful, and accessible mobile community app for Madina Masjid Medavakkam (No. P.P. 8, 3rd Main Road, M.K.B. Nagar, Chennai - 600 039). Prayers, events, services, and community care.",
+  "name": "Remix Madina Masjid Mkb Nagar",
+  "description": "Modern, peaceful, and accessible mobile community app for Masjid prayers, events, community services, Qibla, Tasbeeh, and Islamic life.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
