@@ -69,7 +69,7 @@ export const MasjidLocatorScreen: React.FC = () => {
             </div>
           </div>
           <span className="text-xs font-bold text-slate-800 mt-2 px-3 py-1 bg-white/90 backdrop-blur-xs rounded-full shadow-xs">
-            Madina Masjid Medavakkam (0.0 km)
+            Madina Masjid MKB Nagar (0.0 km)
           </span>
         </div>
 

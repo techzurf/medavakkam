@@ -54,7 +54,7 @@ export const DonationScreen: React.FC = () => {
         </div>
 
         <h1 className="text-xl font-extrabold tracking-tight text-white mb-1">
-          Support Madina Masjid Medavakkam
+          Support Madina Masjid MKB Nagar
         </h1>
 
         <p className="text-xs text-white/90 leading-relaxed max-w-sm">

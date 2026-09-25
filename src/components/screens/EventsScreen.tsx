@@ -74,7 +74,7 @@ export const EventsScreen: React.FC = () => {
 
   const handleShare = () => {
     if (navigator.clipboard) {
-      navigator.clipboard.writeText(`Join us at Madina Masjid Medavakkam: ${detailModalEvent?.title} on ${detailModalEvent?.date}`);
+      navigator.clipboard.writeText(`Join us at Madina Masjid MKB Nagar: ${detailModalEvent?.title} on ${detailModalEvent?.date}`);
       setCopiedLink(true);
       setTimeout(() => setCopiedLink(false), 2000);
     }
@@ -255,7 +255,7 @@ export const EventsScreen: React.FC = () => {
                 Capacity: {detailModalEvent.capacity} Attendees
               </div>
               <div className="text-xs font-bold text-amber-300">
-                Madina Masjid Medavakkam
+                Madina Masjid MKB Nagar
               </div>
             </div>
 

@@ -55,7 +55,7 @@ export const MasjidAboutScreen: React.FC = () => {
           </div>
 
           <button
-            onClick={() => alert('Opening navigation directions to Madina Masjid Medavakkam...')}
+            onClick={() => alert('Opening navigation directions to Madina Masjid MKB Nagar...')}
             className="px-3 py-1.5 rounded-xl bg-white text-[#087F5B] font-bold text-xs flex items-center gap-1 shadow-xs hover:bg-[#E8F7F1] active:scale-95 transition-all"
           >
             <Navigation className="w-3 h-3 text-[#D4A72C]" />
@@ -91,7 +91,7 @@ export const MasjidAboutScreen: React.FC = () => {
           <span>Our Sacred Mission</span>
         </h3>
         <p className="text-xs text-slate-600 leading-relaxed mb-3">
-          Madina Masjid Medavakkam serves as a spiritual home rooted in Quran and authentic Sunnah. We are committed to fostering sincere worship, classical Islamic education, inter-generational unity, and charitable relief for all people.
+          Madina Masjid MKB Nagar serves as a spiritual home rooted in Quran and authentic Sunnah. We are committed to fostering sincere worship, classical Islamic education, inter-generational unity, and charitable relief for all people.
         </p>
         <div className="grid grid-cols-3 gap-2 text-center text-xs">
           <div className="p-2.5 bg-[#E8F7F1] border border-emerald-100 rounded-xl">

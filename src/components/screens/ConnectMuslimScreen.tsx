@@ -56,7 +56,7 @@ export const ConnectMuslimScreen: React.FC = () => {
           </h1>
 
           <p className="text-xs text-slate-300 leading-relaxed max-w-sm">
-            A trusted halal network bridging local jobs, businesses, matrimony, education, and healthcare through Madina Masjid Medavakkam.
+            A trusted halal network bridging local jobs, businesses, matrimony, education, and healthcare through Madina Masjid MKB Nagar.
           </p>
 
           <div className="mt-3 pt-3 border-t border-white/10 flex items-center gap-3 text-[11px] text-slate-300">

@@ -81,7 +81,7 @@ export const RegistrationScreen: React.FC = () => {
           </h2>
 
           <p className="text-xs text-slate-600 max-w-xs mb-6 leading-relaxed">
-            Your application for <strong>{activeRegistrationType}</strong> has been successfully submitted and recorded with Madina Masjid Medavakkam administration.
+            Your application for <strong>{activeRegistrationType}</strong> has been successfully submitted and recorded with Madina Masjid MKB Nagar administration.
           </p>
 
           {/* Reference Card with QR Mockup */}

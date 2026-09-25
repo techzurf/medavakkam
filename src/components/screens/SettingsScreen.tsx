@@ -29,6 +29,7 @@ import {
 } from 'lucide-react';
 import { useTranslation } from '../../utils/translations';
 import { readAudioFileAsDataUrl } from '../../utils/audioNotification';
+import { RamadanLanternIcon } from '../common/IslamicIcons';
 
 export const SettingsScreen: React.FC = () => {
   const { 
@@ -45,7 +46,9 @@ export const SettingsScreen: React.FC = () => {
     triggerTestPrayerAlert,
     notificationPermission,
     requestNotificationPermission,
-    triggerHapticFeedback
+    triggerHapticFeedback,
+    setActiveTab,
+    setOverlayScreen
   } = useApp();
 
   const t = useTranslation(settings.language);
@@ -638,24 +641,90 @@ export const SettingsScreen: React.FC = () => {
         <div className="border-t border-slate-100"></div>
 
         {/* Ramadan Mode Toggle */}
-        <div className="flex items-center justify-between py-1">
-          <div>
-            <div className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
-              <span>Ramadan Mode (ரம்ஜான் முறை)</span>
-              <span className="text-[10px] px-2 py-0.5 rounded-md bg-amber-100 text-amber-900 font-bold border border-amber-200">Special</span>
+        <div className="py-1">
+          <div className="flex items-center justify-between">
+            <div className="flex items-start gap-2.5">
+              <div className={`w-8 h-8 rounded-xl flex items-center justify-center transition-colors ${
+                settings.ramadanMode 
+                  ? 'bg-amber-400 text-slate-950 font-bold shadow-xs' 
+                  : 'bg-amber-50 text-amber-700'
+              }`}>
+                <RamadanLanternIcon className="w-4 h-4" />
+              </div>
+              <div>
+                <div className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+                  <span>Ramadan Mode (ரம்ஜான் முறை)</span>
+                  <span className={`text-[10px] px-2 py-0.5 rounded-md font-bold border transition-colors ${
+                    settings.ramadanMode
+                      ? 'bg-amber-400 text-slate-950 border-amber-500'
+                      : 'bg-amber-50 text-amber-900 border-amber-200'
+                  }`}>
+                    {settings.ramadanMode ? 'Active' : 'Special'}
+                  </span>
+                </div>
+                <p className="text-[11px] text-slate-500 max-w-[240px] mt-0.5">
+                  Festive color theme, Home Screen Iftar & Suhoor countdown, and fasting duas.
+                </p>
+              </div>
             </div>
-            <p className="text-[11px] text-slate-500 max-w-[240px]">
-              Activates Suhoor countdown, Iftar alerts, and Taraweeh scheduling.
-            </p>
+            <button
+              onClick={() => {
+                triggerHapticFeedback('selection', true);
+                toggleRamadanMode();
+              }}
+              aria-label="Toggle Ramadan Mode"
+              className={`w-12 h-7 rounded-full transition-all duration-200 p-1 flex items-center shrink-0 ${
+                settings.ramadanMode 
+                  ? 'bg-gradient-to-r from-amber-500 to-amber-400 shadow-[0_0_10px_rgba(245,158,11,0.4)] justify-end' 
+                  : 'bg-slate-200 justify-start'
+              }`}
+            >
+              <div className="w-5 h-5 rounded-full bg-white shadow-md"></div>
+            </button>
           </div>
-          <button
-            onClick={toggleRamadanMode}
-            className={`w-12 h-7 rounded-full transition-colors p-1 flex items-center ${
-              settings.ramadanMode ? 'bg-[#D4A72C] justify-end' : 'bg-slate-200 justify-start'
-            }`}
-          >
-            <div className="w-5 h-5 rounded-full bg-white shadow-md"></div>
-          </button>
+
+          {/* Expanded Festive Features Info when Ramadan Mode is Active */}
+          {settings.ramadanMode && (
+            <div className="mt-3 p-3 rounded-2xl bg-gradient-to-br from-amber-500/10 via-amber-400/5 to-transparent border border-amber-400/30 space-y-2 animate-in fade-in duration-200">
+              <div className="text-[11px] font-bold text-amber-900 flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                <span>Ramadan Mode Active Features:</span>
+              </div>
+              
+              <ul className="text-[11px] text-slate-600 space-y-1 pl-1">
+                <li className="flex items-center gap-1.5">
+                  <span className="w-1 h-1 rounded-full bg-amber-500"></span>
+                  <span><strong>Festive Theme:</strong> Midnight sapphire & radiant gold palette across app</span>
+                </li>
+                <li className="flex items-center gap-1.5">
+                  <span className="w-1 h-1 rounded-full bg-amber-500"></span>
+                  <span><strong>Countdown Card:</strong> Live Iftar & Suhoor clock directly on Home Screen</span>
+                </li>
+                <li className="flex items-center gap-1.5">
+                  <span className="w-1 h-1 rounded-full bg-amber-500"></span>
+                  <span><strong>Fasting Duas:</strong> Authenticated supplications in Arabic, English & Tamil</span>
+                </li>
+                <li className="flex items-center gap-1.5">
+                  <span className="w-1 h-1 rounded-full bg-amber-500"></span>
+                  <span><strong>Taraweeh Schedule:</strong> Daily 20 Raka'at timings and community Iftar updates</span>
+                </li>
+              </ul>
+
+              <div className="pt-2 border-t border-amber-200/60 flex items-center justify-between">
+                <span className="text-[10px] text-amber-800 font-medium">Ready on Home Screen</span>
+                <button
+                  onClick={() => {
+                    setOverlayScreen(null);
+                    setActiveTab('home');
+                  }}
+                  className="px-2.5 py-1 rounded-lg bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-[11px] transition-colors flex items-center gap-1"
+                >
+                  <span>View Countdown Card</span>
+                  <ChevronRight className="w-3 h-3" />
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
@@ -719,7 +788,7 @@ export const SettingsScreen: React.FC = () => {
 
       {/* App Version Info */}
       <div className="text-center text-[11px] text-slate-400 py-2">
-        Madina Masjid Medavakkam Mobile App · Version 2.5.0 (Community Build)
+        Madina Masjid MKB Nagar Mobile App · Version 2.5.0 (Community Build)
         <br />Designed with love & ihsan for the Ummah
       </div>
     </div>

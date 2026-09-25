@@ -52,7 +52,11 @@ export const MobileBottomNav: React.FC = () => {
   return (
     <nav 
       aria-label="Bottom Navigation"
-      className="fixed bottom-0 left-0 right-0 z-40 max-w-[430px] mx-auto bg-white/95 backdrop-blur-lg border-t border-slate-200/80 px-2 py-1 shadow-lg"
+      className={`fixed bottom-0 left-0 right-0 z-40 max-w-[430px] mx-auto backdrop-blur-lg px-2 py-1 transition-colors duration-200 ${
+        settings.ramadanMode 
+          ? 'bg-[#091A30]/98 border-t border-amber-500/30 shadow-2xl' 
+          : 'bg-white/95 border-t border-slate-200/80 shadow-lg'
+      }`}
     >
       <div className="grid grid-cols-5 items-center h-15">
         {tabs.map(tab => {
@@ -66,20 +70,26 @@ export const MobileBottomNav: React.FC = () => {
               }}
               className={`min-h-[48px] flex flex-col items-center justify-center relative transition-all duration-150 ${
                 isActive 
-                  ? 'text-[#087F5B]' 
-                  : 'text-slate-500 hover:text-slate-800'
+                  ? settings.ramadanMode ? 'text-amber-400' : 'text-[#087F5B]' 
+                  : settings.ramadanMode ? 'text-slate-400 hover:text-amber-200' : 'text-slate-500 hover:text-slate-800'
               }`}
             >
               {/* Icon Container with subtle active pill dot */}
               <div className="relative flex items-center justify-center">
                 {tab.icon}
                 {isActive && (
-                  <span className="absolute -bottom-1 w-1 h-1 rounded-full bg-[#D4A72C]"></span>
+                  <span className={`absolute -bottom-1 w-1.5 h-1.5 rounded-full ${
+                    settings.ramadanMode 
+                      ? 'bg-amber-400 shadow-[0_0_8px_#F59E0B]' 
+                      : 'bg-[#D4A72C]'
+                  }`}></span>
                 )}
               </div>
               
               <span className={`text-[10px] mt-1 tracking-tight truncate max-w-[64px] ${
-                isActive ? 'font-bold text-[#087F5B]' : 'font-medium'
+                isActive 
+                  ? settings.ramadanMode ? 'font-bold text-amber-300' : 'font-bold text-[#087F5B]' 
+                  : 'font-medium'
               }`}>
                 {tab.label}
               </span>

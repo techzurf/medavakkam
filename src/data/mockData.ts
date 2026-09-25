@@ -10,10 +10,10 @@ import {
 } from '../types';
 
 export const MASJID_INFO = {
-  name: "Madina Masjid Medavakkam",
-  tamilName: "மதீனா மஸ்ஜித் மேடவாக்கம்",
-  arabicName: "مسجد المدينة ميدافاكام",
-  shortName: "Madina Masjid Medavakkam",
+  name: "Madina Masjid MKB Nagar",
+  tamilName: "மதீனா மஸ்ஜித் எம்.கே.பி. நகர்",
+  arabicName: "مسجد المدينة إم كي بي نجر",
+  shortName: "Madina Masjid MKB Nagar",
   tagline: "A peaceful sanctuary for prayer, knowledge, and community care",
   establishedYear: 2004,
   address: "No. P.P. 8, 3rd Main Road, M.K.B. Nagar, Chennai - 600 039.",
@@ -132,7 +132,7 @@ export const MOCK_EVENTS: EventItem[] = [
     time: '10:00 AM - 01:30 PM',
     location: 'Main Prayer Hall & Live Stream',
     speaker: 'Sheikh Dr. Abdullah Al-Rahman',
-    speakerRole: 'Head Imam, Madina Masjid Medavakkam',
+    speakerRole: 'Head Imam, Madina Masjid MKB Nagar',
     imageFallbackGradient: 'from-[#D4A72C] to-[#B45309]',
     description: 'An insightful spiritual deep-dive into Imam Al-Ghazali\'s teachings on overcoming envy, pride, and spiritual numbness in modern times. Free childcare provided in the Youth Center.',
     registrationRequired: true,
@@ -433,7 +433,7 @@ export const CONNECT_MUSLIM_ITEMS: ConnectMuslimItem[] = [
 export const NEARBY_MASJIDS: MasjidItem[] = [
   {
     id: 'masjid-1',
-    name: 'Madina Masjid Medavakkam (Current)',
+    name: 'Madina Masjid MKB Nagar (Current)',
     address: 'No. P.P. 8, 3rd Main Road, M.K.B. Nagar, Chennai - 600 039.',
     distance: '0.0 km',
     travelTime: 'You are here',

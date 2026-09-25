@@ -136,7 +136,7 @@ export const ServicesScreen: React.FC = () => {
           Masjid Community Services
         </h1>
         <p className="text-xs text-slate-500 mt-0.5">
-          Dedicated religious, social, and humanitarian aid provided by Madina Masjid Medavakkam.
+          Dedicated religious, social, and humanitarian aid provided by Madina Masjid MKB Nagar.
         </p>
       </div>
 

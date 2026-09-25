@@ -1,5 +1,5 @@
 /**
- * Audio Notification & Synthesis Engine for Madina Masjid Medavakkam App
+ * Audio Notification & Synthesis Engine for Madina Masjid MKB Nagar App
  * Supports synthesized Adhans (Makkah, Madinah, Al-Aqsa), melodic chimes,
  * soft beeps, and custom user-uploaded audio files via HTML5 Audio and Web Audio API.
  */

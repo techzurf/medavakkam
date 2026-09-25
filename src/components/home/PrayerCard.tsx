@@ -146,7 +146,7 @@ export const PrayerCard: React.FC = () => {
         <span>Top: Adhan / Bottom: Iqamah</span>
         <span className="text-[#087F5B] font-semibold flex items-center gap-1">
           <span className="w-1.5 h-1.5 rounded-full bg-[#D4A72C]"></span>
-          <span>Madina Masjid Medavakkam</span>
+          <span>Madina Masjid MKB Nagar</span>
         </span>
       </div>
 

@@ -483,15 +483,15 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   };
 
   const toggleSeniorMode = () => {
-    setSettings(prev => ({ ...prev, seniorMode: !prev.seniorMode }));
+    updateSettings({ seniorMode: !settings.seniorMode });
   };
 
   const toggleRamadanMode = () => {
-    setSettings(prev => ({ ...prev, ramadanMode: !prev.ramadanMode }));
+    updateSettings({ ramadanMode: !settings.ramadanMode });
   };
 
   const setLanguage = (lang: AppLanguage) => {
-    setSettings(prev => ({ ...prev, language: lang }));
+    updateSettings({ language: lang });
   };
 
   const openEventDetail = (event: EventItem) => {

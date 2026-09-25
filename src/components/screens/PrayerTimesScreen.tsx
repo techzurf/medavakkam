@@ -351,7 +351,7 @@ export const PrayerTimesScreen: React.FC = () => {
                   September 2026 Timetable
                 </h3>
                 <span className="text-xs text-slate-500">
-                  Rabi' al-Awwal 1448 AH · Madina Masjid Medavakkam
+                  Rabi' al-Awwal 1448 AH · Madina Masjid MKB Nagar
                 </span>
               </div>
               <button

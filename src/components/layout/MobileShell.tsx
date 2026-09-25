@@ -18,12 +18,16 @@ export const MobileShell: React.FC<MobileShellProps> = ({ children }) => {
   } = useApp();
 
   return (
-    <div className="min-h-screen w-full bg-[#EEF2EF] text-[#17221D] flex justify-center">
+    <div className={`min-h-screen w-full flex justify-center transition-colors duration-300 ${
+      settings.ramadanMode ? 'ramadan-night-canvas' : 'bg-[#EEF2EF]'
+    } text-[#17221D]`}>
       {/* Clean Standalone Mobile App Canvas */}
       <div 
-        className={`w-full max-w-[430px] min-h-screen bg-[#F7F9F7] text-[#17221D] flex flex-col relative shadow-sm sm:border-x sm:border-slate-200/80 ${
-          settings.seniorMode ? 'text-[17px]' : 'text-[15px]'
-        }`}
+        className={`w-full max-w-[430px] min-h-screen flex flex-col relative transition-all duration-300 ${
+          settings.ramadanMode 
+            ? 'bg-[#FDFBF7] sm:border-x sm:border-amber-400/40 ramadan-festive-glow' 
+            : 'bg-[#F7F9F7] sm:border-x sm:border-slate-200/80 shadow-sm'
+        } ${settings.seniorMode ? 'text-[17px]' : 'text-[15px]'}`}
       >
         {/* In-App Approaching Prayer Alert Toast / Banner (Triggered prior to Salah) */}
         {activePrayerAlert && (
