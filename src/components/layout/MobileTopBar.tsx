@@ -37,7 +37,7 @@ export const MobileTopBar: React.FC<MobileTopBarProps> = ({
       case 'locator': return 'Masjid Locator';
       case 'connect_muslim': return 'Connect Muslim Services';
       case 'notifications': return 'Notifications';
-      case 'donation': return 'Masjid Donation';
+      case 'donation': return 'Support Your Masjid';
       case 'registration': return 'Masjid Registration';
       case 'quran': return 'Quran & Reminders';
       case 'duas': return 'Daily Supplications';

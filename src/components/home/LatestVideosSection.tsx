@@ -58,7 +58,7 @@ export const LatestVideosSection: React.FC = () => {
   };
 
   return (
-    <div className="w-full">
+    <div id="latest-videos-section" className="w-full scroll-mt-20">
       {/* Header with Title, Subtitle, and Carousel Controls */}
       <div className="flex items-center justify-between mb-2.5 px-0.5">
         <div>

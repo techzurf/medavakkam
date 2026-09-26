@@ -14,7 +14,8 @@ import {
   ChevronRight, 
   ShieldCheck, 
   PackageSearch,
-  Bell
+  Bell,
+  HeartHandshake
 } from 'lucide-react';
 import { UserRegistration } from '../../types';
 import { RubElHizbIcon } from '../common/IslamicIcons';
@@ -114,6 +115,17 @@ export const ProfileScreen: React.FC = () => {
 
       {/* Quick Navigation Menu Links */}
       <div className="bg-white rounded-3xl p-2 border border-slate-200/80 shadow-2xs divide-y divide-slate-100">
+        <button
+          onClick={() => setOverlayScreen('donation')}
+          className="w-full p-3 flex items-center justify-between hover:bg-slate-50 rounded-2xl transition-colors text-xs font-semibold text-slate-800"
+        >
+          <div className="flex items-center gap-2.5">
+            <HeartHandshake className="w-4 h-4 text-[#087F5B]" />
+            <span>Support Your Masjid (Direct Donation)</span>
+          </div>
+          <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-[#087F5B]">Direct UPI</span>
+        </button>
+
         <button
           onClick={() => setOverlayScreen('duas')}
           className="w-full p-3 flex items-center justify-between hover:bg-slate-50 rounded-2xl transition-colors text-xs font-semibold text-slate-800"

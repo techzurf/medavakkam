@@ -24,6 +24,7 @@ import { DailyDuaScreen } from './components/screens/DailyDuaScreen';
 import { ProfileScreen } from './components/screens/ProfileScreen';
 import { SettingsScreen } from './components/screens/SettingsScreen';
 import { LostFoundScreen } from './components/screens/LostFoundScreen';
+import { AdminApp } from './admin/AdminApp';
 
 const MainAppContent: React.FC = () => {
   const { overlayScreen, activeTab } = useApp();
@@ -102,9 +103,61 @@ const MainAppContent: React.FC = () => {
 };
 
 export function App() {
+  const [isAdminView, setIsAdminView] = React.useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      return (
+        window.location.pathname.startsWith('/admin') ||
+        window.location.hash.startsWith('#admin') ||
+        new URLSearchParams(window.location.search).get('view') === 'admin'
+      );
+    }
+    return false;
+  });
+
+  React.useEffect(() => {
+    const handleUrlCheck = () => {
+      const isNowAdmin = 
+        window.location.pathname.startsWith('/admin') ||
+        window.location.hash.startsWith('#admin') ||
+        new URLSearchParams(window.location.search).get('view') === 'admin';
+      setIsAdminView(isNowAdmin);
+    };
+
+    window.addEventListener('popstate', handleUrlCheck);
+    window.addEventListener('hashchange', handleUrlCheck);
+    return () => {
+      window.removeEventListener('popstate', handleUrlCheck);
+      window.removeEventListener('hashchange', handleUrlCheck);
+    };
+  }, []);
+
+  const handleEnterAdmin = () => {
+    setIsAdminView(true);
+    window.history.pushState(null, '', '/admin');
+  };
+
+  const handleExitAdmin = () => {
+    setIsAdminView(false);
+    window.history.pushState(null, '', '/');
+  };
+
+  if (isAdminView) {
+    return <AdminApp onExitAdmin={handleExitAdmin} />;
+  }
+
   return (
     <AppProvider>
       <MainAppContent />
+      {/* Subtle floating toggle button for easy access during preview & admin evaluation */}
+      <button
+        type="button"
+        onClick={handleEnterAdmin}
+        className="fixed bottom-22 right-4 z-40 px-3 py-1.5 rounded-full bg-slate-900/90 hover:bg-slate-900 text-white text-[11px] font-bold shadow-lg flex items-center gap-1.5 backdrop-blur-xs border border-white/20 active:scale-95 transition-all cursor-pointer"
+        title="Switch to Masjid Admin Portal"
+      >
+        <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+        <span>Admin Portal</span>
+      </button>
     </AppProvider>
   );
 }

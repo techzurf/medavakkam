@@ -46,6 +46,46 @@
   scrollbar-width: none;
 }
 
+/* ─────────────────────────────────────────────────────────────
+   ADMIN PANEL MOBILE WEBVIEW SCROLLING (ZERO VISIBLE SCROLLBARS)
+   Suppresses visible scrollbars everywhere across Chrome, Safari,
+   Firefox, and Edge while preserving full vertical touch, wheel,
+   and trackpad scrolling.
+   ───────────────────────────────────────────────────────────── */
+body.admin-mode,
+html.admin-mode {
+  background-color: #F8FAFB !important;
+  overflow-x: hidden !important;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+body.admin-mode::-webkit-scrollbar,
+html.admin-mode::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+  -webkit-appearance: none !important;
+}
+
+.admin-portal-root,
+.admin-portal-root * {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+  -webkit-overflow-scrolling: touch;
+}
+
+.admin-portal-root::-webkit-scrollbar,
+.admin-portal-root *::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+  -webkit-appearance: none !important;
+}
+
 /* Islamic pattern background generator with SVG */
 .islamic-pattern {
   background-color: #087F5B;

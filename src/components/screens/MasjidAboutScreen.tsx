@@ -19,6 +19,8 @@ import { MASJID_INFO } from '../../data/mockData';
 import { MosqueIcon, RubElHizbIcon } from '../common/IslamicIcons';
 
 export const MasjidAboutScreen: React.FC = () => {
+  const { setOverlayScreen } = useApp();
+
   return (
     <div className="w-full flex flex-col gap-4 px-4 pt-2 pb-8">
       {/* Hero Masjid Profile Banner */}
@@ -61,6 +63,31 @@ export const MasjidAboutScreen: React.FC = () => {
             <Navigation className="w-3 h-3 text-[#D4A72C]" />
             <span>Get Directions</span>
           </button>
+        </div>
+      </div>
+
+      {/* Support Your Masjid Direct Donation Banner */}
+      <div 
+        onClick={() => setOverlayScreen('donation')}
+        className="w-full p-4 rounded-3xl bg-gradient-to-r from-[#087F5B] to-[#06543F] text-white flex items-center justify-between cursor-pointer active:scale-[0.99] transition-all shadow-xs border border-emerald-600/30"
+      >
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-2xl bg-white/15 flex items-center justify-center text-white shrink-0">
+            <Heart className="w-5 h-5 text-[#FDE68A] fill-[#FDE68A]" />
+          </div>
+          <div>
+            <div className="flex items-center gap-1.5">
+              <h4 className="text-xs font-bold text-white">
+                Support Your Masjid
+              </h4>
+              <span className="text-[9px] font-bold px-1.5 py-0.2 rounded-full bg-[#FDE68A] text-emerald-950">
+                Direct UPI
+              </span>
+            </div>
+            <p className="text-[11px] text-emerald-100/90 mt-0.5">
+              Donate directly via UPI QR, UPI ID or Bank Transfer →
+            </p>
+          </div>
         </div>
       </div>
 

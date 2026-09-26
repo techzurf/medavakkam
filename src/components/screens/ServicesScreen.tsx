@@ -140,6 +140,27 @@ export const ServicesScreen: React.FC = () => {
         </p>
       </div>
 
+      {/* Direct Masjid Donation Strip */}
+      <div 
+        onClick={() => setOverlayScreen('donation')}
+        className="w-full p-3 rounded-2xl bg-[#E8F7F1] border border-emerald-600/25 flex items-center justify-between cursor-pointer active:scale-[0.99] transition-all hover:bg-emerald-100/70"
+      >
+        <div className="flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-xl bg-[#087F5B] text-white flex items-center justify-center shrink-0">
+            <Coins className="w-4 h-4 text-[#FDE68A]" />
+          </div>
+          <div>
+            <div className="text-xs font-bold text-slate-900">
+              Support Masjid MKB Nagar & Welfare
+            </div>
+            <div className="text-[11px] text-emerald-800 font-medium">
+              100% Direct UPI & Bank Donation • No Gateway
+            </div>
+          </div>
+        </div>
+        <ChevronRight className="w-4 h-4 text-[#087F5B] shrink-0" />
+      </div>
+
       {/* Services Grid (Clean 2-column or list rows with visually diverse cards) */}
       <div className="grid grid-cols-1 gap-2.5">
         {MOCK_SERVICES.map(srv => {
